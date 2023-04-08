@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDateTime;
 
-@Mapper( imports = {LocalDateTime.class})
+@Mapper(componentModel = "default", imports = {LocalDateTime.class})
 public interface ActorMapper extends GenericMapper<ActorEntity, ActorModel> {
     ActorMapper INSTANCE = Mappers.getMapper(ActorMapper.class);
 

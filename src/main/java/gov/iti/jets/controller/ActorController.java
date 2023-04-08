@@ -21,9 +21,6 @@ public class ActorController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ActorModel getActor(@PathParam("id") Integer id) {
-        /*
-        For Testing
-        * */
         EntityManager entityManager = EntityManagerHelper.getEntityManager();
         TypedQuery<ActorEntity> query = entityManager.createQuery("from actor where actorId=:id", ActorEntity.class);
         query.setParameter("id", id);
