@@ -18,6 +18,8 @@ import java.util.Optional;
 public class ActorRepositoryImpl implements ActorRepository {
 
 
+    private ActorMapper actorMapper = ActorMapper.INSTANCE;
+
     @Override
     public ActorModel save(ActorModel entity) {
         return null;
@@ -31,7 +33,8 @@ public class ActorRepositoryImpl implements ActorRepository {
                     .createQuery("from actor where actorId=:id", ActorEntity.class);
             typedQuery.setParameter("id", integer);
             ActorEntity entity = typedQuery.getSingleResult();
-            return Optional.ofNullable(ActorMapper.INSTANCE.mapToDto(entity));
+            actorMapper = ActorMapper.INSTANCE;
+            return Optional.ofNullable(actorMapper.mapToDto(entity));
         } catch (Exception e) {
             EntityManagerHelper.rollback();
             return Optional.empty();
@@ -42,7 +45,18 @@ public class ActorRepositoryImpl implements ActorRepository {
 
     @Override
     public List<ActorModel> findAll() {
-        return null;
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        try {
+            TypedQuery<ActorEntity> typedQuery = entityManager
+                    .createQuery("from actor", ActorEntity.class);
+            return actorMapper.mapToDtoList(typedQuery.getResultList());
+        } catch (Exception e) {
+            EntityManagerHelper.rollback();
+            return null;
+        } finally {
+            EntityManagerHelper.closeEntityManager();
+        }
+
     }
 
     @Override
@@ -71,8 +85,7 @@ public class ActorRepositoryImpl implements ActorRepository {
     }
 
     @Override
-    public List<FilmModel> findAllActorFilmListByIdWithFilter(Integer actorId, LocalDate
-            releaseYear, FilmRating rating) {
+    public List<FilmModel> findAllActorFilmListByIdWithFilter(Integer actorId, LocalDate releaseYear, FilmRating rating) {
         return null;
     }
 

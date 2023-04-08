@@ -15,13 +15,13 @@ public class ActorServiceImpl implements ActorService {
 
     @Override
     public List<ActorModel> getActorList() {
-        return null;
+        return actorRepository.findAll();
     }
 
     @Override
     public Optional<ActorModel> getActor(String actorId) {
         return Optional.of(actorRepository.findById(Integer.valueOf(actorId)))
-                .orElseThrow(() -> new IllegalArgumentException("No such"));
+                .orElseThrow(() -> new IllegalArgumentException("No such Actor!"));
     }
 
     @Override
