@@ -28,17 +28,19 @@ public class ActorController implements CrudController<ActorModel> {
     }
 
     @Override
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
     public List<ActorModel> list() {
+        return actorService.getActorList();
+    }
+
+    @Override
+    public ActorModel add(ActorModel model) {
         return null;
     }
 
     @Override
-    public ActorModel add(ActorModel resource) {
-        return null;
-    }
-
-    @Override
-    public ActorModel update(String id, ActorModel resource) {
+    public ActorModel update(String id, ActorModel model) {
         return null;
     }
 
