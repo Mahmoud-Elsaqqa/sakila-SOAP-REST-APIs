@@ -1,7 +1,7 @@
 package gov.iti.jets.model.mapping.mapper;
 
 import gov.iti.jets.model.dto.core.ActorModel;
-import gov.iti.jets.model.entity.ActorEntity;
+import gov.iti.jets.model.entity.inventory.ActorEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

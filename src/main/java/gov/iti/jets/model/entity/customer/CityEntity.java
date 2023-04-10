@@ -1,7 +1,8 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.customer;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Country;
+import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.mapping.converter.CountryConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class CityEntity implements Serializable {
+public class CityEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

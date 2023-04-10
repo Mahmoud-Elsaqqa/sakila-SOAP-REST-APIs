@@ -1,12 +1,10 @@
-package gov.iti.jets.model.entity;
-
+package gov.iti.jets.model.entity.inventory;
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.constant.Country;
-import gov.iti.jets.model.mapping.converter.CountryConverter;
+import gov.iti.jets.model.entity.BaseEntity;
+import gov.iti.jets.model.entity.FullName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,28 +14,26 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
-@Entity(name = "country")
-@Table(name = "country", schema = "sakila")
+@Entity(name = "actor")
+@Table(name = "actor", schema = "sakila", indexes = {
+        @Index(name = "idx_actor_last_name", columnList = "last_name")
+})
 @Getter
 @ToString
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class CountryEntity implements Serializable {
+public class ActorEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "country_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
+    @Column(name = "actor_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Convert(converter = CountryConverter.class)
-    private Country countryId;
+    private Integer actorId;
 
-    @Basic
-    @Column(name = "country", length = 50, nullable = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    private String country;
+    @Embedded
+    private FullName fullName;
 
     @Basic
     @Column(name = "last_update", columnDefinition = "TIMESTAMP", nullable = false)
@@ -46,12 +42,12 @@ public class CountryEntity implements Serializable {
     @NotNull
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "countryByCountryId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "actorByActorId", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Collection<CityEntity> citiesByCountryId;
+    private Collection<FilmActorEntity> filmActorsByActorId;
 
-    public void update(CountryEntity entity) {
-        this.country = entity.country;
+    public void update(ActorEntity entity) {
+        this.fullName = entity.fullName;
         this.lastUpdate = entity.lastUpdate;
     }
 
@@ -59,14 +55,14 @@ public class CountryEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CountryEntity that = (CountryEntity) o;
-        return countryId == that.countryId
-                && Objects.equal(country, that.country)
+        ActorEntity that = (ActorEntity) o;
+        return Objects.equal(actorId, that.actorId)
+                && Objects.equal(fullName, that.fullName)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(countryId, country, lastUpdate);
+        return Objects.hashCode(actorId, fullName, lastUpdate);
     }
 }

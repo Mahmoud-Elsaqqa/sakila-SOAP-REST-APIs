@@ -2,7 +2,7 @@
 //
 //
 //import gov.iti.jets.model.dto.core.AddressModel;
-//import gov.iti.jets.model.entity.AddressEntity;
+//import gov.iti.jets.model.entity.customer.AddressEntity;
 //import org.mapstruct.Mapper;
 //import org.mapstruct.factory.Mappers;
 //

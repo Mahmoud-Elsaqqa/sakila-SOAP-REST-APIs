@@ -1,4 +1,4 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.inventory;
 
 
 import com.google.common.base.Objects;

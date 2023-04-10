@@ -1,10 +1,11 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.inventory;
 
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.FilmRating;
 import gov.iti.jets.model.constant.Language;
 import gov.iti.jets.model.constant.SpecialFeature;
+import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.LanguageConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
@@ -34,7 +35,7 @@ import java.util.EnumSet;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmEntity implements Serializable {
+public class FilmEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

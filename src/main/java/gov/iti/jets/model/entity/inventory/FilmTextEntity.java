@@ -1,6 +1,7 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.inventory;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmTextEntity implements Serializable {
+public class FilmTextEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

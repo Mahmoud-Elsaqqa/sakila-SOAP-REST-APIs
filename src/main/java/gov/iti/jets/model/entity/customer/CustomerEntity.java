@@ -1,6 +1,10 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.customer;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.entity.*;
+import gov.iti.jets.model.entity.rental.PaymentEntity;
+import gov.iti.jets.model.entity.rental.RentalEntity;
+import gov.iti.jets.model.entity.rental.StoreEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -24,7 +28,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class CustomerEntity implements Serializable {
+public class CustomerEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

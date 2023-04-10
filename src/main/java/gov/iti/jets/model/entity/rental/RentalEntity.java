@@ -1,6 +1,9 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.rental;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.entity.BaseEntity;
+import gov.iti.jets.model.entity.customer.CustomerEntity;
+import gov.iti.jets.model.entity.inventory.InventoryEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -24,7 +27,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class RentalEntity implements Serializable {
+public class RentalEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

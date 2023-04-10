@@ -1,8 +1,10 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.inventory;
+
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.constant.Category;
-import gov.iti.jets.model.mapping.converter.CategoryConverter;
+import gov.iti.jets.model.constant.Language;
+import gov.iti.jets.model.entity.BaseEntity;
+import gov.iti.jets.model.mapping.converter.LanguageConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,27 +17,27 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
-@Entity(name = "category")
-@Table(name = "category", schema = "sakila")
+@Entity(name = "language")
+@Table(name = "language", schema = "sakila")
 @Getter
 @ToString
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class CategoryEntity implements Serializable {
+public class LanguageEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "category_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
+    @Column(name = "language_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Convert(converter = CategoryConverter.class)
-    private Category categoryId;
+    @Convert(converter = LanguageConverter.class)
+    private Language languageId;
 
     @Basic
-    @Column(name = "name", length = 25, nullable = false)
+    @Column(name = "name", columnDefinition = "CHAR(20)", length = 20, nullable = false)
     @NotNull
-    @Size(min = 1, max = 25)
+    @Size(min = 1, max = 20)
     private String name;
 
     @Basic
@@ -45,11 +47,15 @@ public class CategoryEntity implements Serializable {
     @NotNull
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "categoryByCategoryId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "languageByLanguageId", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Collection<FilmCategoryEntity> filmCategoriesByCategoryId;
+    private Collection<FilmEntity> filmsByLanguageId;
 
-    public void update(CategoryEntity entity) {
+    @OneToMany(mappedBy = "languageByOriginalLanguageId", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private Collection<FilmEntity> filmsByOriginalLanguageId;
+
+    public void update(LanguageEntity entity) {
         this.name = entity.name;
         this.lastUpdate = entity.lastUpdate;
     }
@@ -58,14 +64,14 @@ public class CategoryEntity implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoryEntity that = (CategoryEntity) o;
-        return categoryId == that.categoryId
+        LanguageEntity that = (LanguageEntity) o;
+        return languageId == that.languageId
                 && Objects.equal(name, that.name)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(categoryId, name, lastUpdate);
+        return Objects.hashCode(languageId, name, lastUpdate);
     }
 }

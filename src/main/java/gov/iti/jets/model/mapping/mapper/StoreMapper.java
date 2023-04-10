@@ -2,7 +2,7 @@
 //
 //
 //import gov.iti.jets.model.dto.core.StoreModel;
-//import gov.iti.jets.model.entity.StoreEntity;
+//import gov.iti.jets.model.entity.rental.StoreEntity;
 //import org.mapstruct.Mapper;
 //import org.mapstruct.factory.Mappers;
 //

@@ -1,6 +1,8 @@
-package gov.iti.jets.model.entity;
+package gov.iti.jets.model.entity.rental;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.entity.BaseEntity;
+import gov.iti.jets.model.entity.customer.CustomerEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -22,7 +24,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class PaymentEntity implements Serializable {
+public class PaymentEntity extends BaseEntity implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
