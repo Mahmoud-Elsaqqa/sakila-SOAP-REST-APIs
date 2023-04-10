@@ -1,6 +1,7 @@
 package gov.iti.jets.model.dto.extra;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -11,7 +12,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StoreDetailsModel {
+public class StoreDetailsModel extends BaseDto {
     private Integer id;
 
     private String store;

@@ -1,10 +1,11 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.inventory;
 
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.FilmRating;
 import gov.iti.jets.model.constant.Language;
 import gov.iti.jets.model.constant.SpecialFeature;
+import gov.iti.jets.model.dto.BaseDto;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
 import jakarta.json.bind.annotation.JsonbTransient;
@@ -26,7 +27,7 @@ import java.util.EnumSet;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmModel {
+public class FilmModel extends BaseDto {
     private Integer filmId;
 
     @Size(min = 1, max = 128)

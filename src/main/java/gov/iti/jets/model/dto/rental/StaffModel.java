@@ -1,6 +1,9 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.rental;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.FullName;
+import gov.iti.jets.model.dto.customer.AddressModel;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -15,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StaffModel {
+public class StaffModel extends BaseDto {
     private Integer staffId;
 
     private FullName fullName;

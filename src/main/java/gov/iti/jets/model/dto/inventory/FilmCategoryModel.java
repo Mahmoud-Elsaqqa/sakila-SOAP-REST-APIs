@@ -1,4 +1,4 @@
-package gov.iti.jets.model.dto.extra;
+package gov.iti.jets.model.dto.inventory;
 
 
 import com.google.common.base.Objects;
@@ -9,11 +9,8 @@ import jakarta.persistence.Convert;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-/**
- * The sales by category model provides the data for the total sales by film category.
- */
 @Getter
 @Setter
 @ToString
@@ -21,29 +18,32 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategorySalesModel extends BaseDto {
-    /**
-     * category
-     */
-    @Convert(converter = CategoryConverter.class)
-    private Category category;
+public class FilmCategoryModel extends BaseDto {
+    private Integer filmId;
 
-    /**
-     * total sales
-     */
-    private BigDecimal totalSales;
+    @Convert(converter = CategoryConverter.class)
+    private Category categoryId;
+
+    private LocalDateTime lastUpdate;
+
+    @ToString.Exclude
+    private FilmModel filmByFilmId;
+
+    @ToString.Exclude
+    private CategoryModel categoryByCategoryId;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategorySalesModel that = (CategorySalesModel) o;
-        return category == that.category
-                && Objects.equal(totalSales, that.totalSales);
+        FilmCategoryModel that = (FilmCategoryModel) o;
+        return Objects.equal(filmId, that.filmId)
+                && categoryId == that.categoryId
+                && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(category, totalSales);
+        return Objects.hashCode(filmId, categoryId, lastUpdate);
     }
 }

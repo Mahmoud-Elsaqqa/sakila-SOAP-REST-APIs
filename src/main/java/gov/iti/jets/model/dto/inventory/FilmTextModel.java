@@ -1,6 +1,7 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.inventory;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -12,7 +13,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmTextModel {
+public class FilmTextModel extends BaseDto {
     private Integer filmId;
 
     @Size(min = 1, max = 255)

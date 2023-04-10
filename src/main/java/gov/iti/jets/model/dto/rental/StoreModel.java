@@ -1,7 +1,11 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.rental;
 
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.customer.AddressModel;
+import gov.iti.jets.model.dto.customer.CustomerModel;
+import gov.iti.jets.model.dto.inventory.InventoryModel;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -15,7 +19,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StoreModel {
+public class StoreModel extends BaseDto {
     private Integer storeId;
 
     private Integer managerStaffId;

@@ -1,7 +1,12 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.customer;
 
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.FullName;
+import gov.iti.jets.model.dto.rental.PaymentModel;
+import gov.iti.jets.model.dto.rental.RentalModel;
+import gov.iti.jets.model.dto.rental.StoreModel;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -17,7 +22,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerModel {
+public class CustomerModel extends BaseDto {
     private Integer customerId;
 
     private Integer storeId;

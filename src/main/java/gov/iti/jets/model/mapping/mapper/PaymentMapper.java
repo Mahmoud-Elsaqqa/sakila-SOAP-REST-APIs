@@ -1,7 +1,7 @@
 //package gov.iti.jets.model.mapping.mapper;
 //
 //
-//import gov.iti.jets.model.dto.core.PaymentModel;
+//import gov.iti.jets.model.dto.rental.PaymentModel;
 //import gov.iti.jets.model.entity.rental.PaymentEntity;
 //import org.mapstruct.Mapper;
 //import org.mapstruct.factory.Mappers;

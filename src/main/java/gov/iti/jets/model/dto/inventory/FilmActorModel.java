@@ -1,6 +1,7 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.inventory;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
 import jakarta.json.bind.annotation.JsonbTransient;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmActorModel {
+public class FilmActorModel extends BaseDto {
     private Integer actorId;
 
     private Integer filmId;

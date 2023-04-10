@@ -1,7 +1,10 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto.inventory;
 
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.rental.RentalModel;
+import gov.iti.jets.model.dto.rental.StoreModel;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -15,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InventoryModel {
+public class InventoryModel extends BaseDto {
     private Integer inventoryId;
 
     private Integer filmId;

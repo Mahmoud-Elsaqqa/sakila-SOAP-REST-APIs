@@ -1,7 +1,7 @@
 //package gov.iti.jets.model.mapping.mapper;
 //
 //
-//import gov.iti.jets.model.dto.core.StoreModel;
+//import gov.iti.jets.model.dto.rental.StoreModel;
 //import gov.iti.jets.model.entity.rental.StoreEntity;
 //import org.mapstruct.Mapper;
 //import org.mapstruct.factory.Mappers;

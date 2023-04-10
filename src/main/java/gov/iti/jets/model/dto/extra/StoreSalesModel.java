@@ -1,6 +1,7 @@
 package gov.iti.jets.model.dto.extra;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -16,7 +17,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StoreSalesModel {
+public class StoreSalesModel extends BaseDto {
     /**
      * store
      */

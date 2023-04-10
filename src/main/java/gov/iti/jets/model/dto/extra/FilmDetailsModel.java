@@ -4,6 +4,7 @@ package gov.iti.jets.model.dto.extra;
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Category;
 import gov.iti.jets.model.constant.FilmRating;
+import gov.iti.jets.model.dto.BaseDto;
 import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import jakarta.persistence.Convert;
@@ -22,7 +23,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmDetailsModel {
+public class FilmDetailsModel extends BaseDto {
     /**
      * film id
      */

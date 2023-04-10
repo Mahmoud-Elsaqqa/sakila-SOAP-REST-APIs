@@ -1,6 +1,7 @@
 package gov.iti.jets.model.dto.extra;
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.dto.BaseDto;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -14,7 +15,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ActorDetailsModel {
+public class ActorDetailsModel extends BaseDto {
     /**
      * actor id
      */

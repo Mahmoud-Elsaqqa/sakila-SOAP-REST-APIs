@@ -1,6 +1,6 @@
 //package gov.iti.jets.model.mapping.mapper;
 //
-//import gov.iti.jets.model.dto.core.CityModel;
+//import gov.iti.jets.model.dto.customer.CityModel;
 //import gov.iti.jets.model.entity.customer.CityEntity;
 //import org.mapstruct.Mapper;
 //import org.mapstruct.factory.Mappers;

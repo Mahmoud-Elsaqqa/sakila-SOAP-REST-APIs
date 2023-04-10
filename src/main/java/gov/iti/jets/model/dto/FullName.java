@@ -1,4 +1,4 @@
-package gov.iti.jets.model.dto.core;
+package gov.iti.jets.model.dto;
 
 import jakarta.validation.constraints.Size;
 import lombok.*;
