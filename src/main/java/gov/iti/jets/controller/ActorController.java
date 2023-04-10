@@ -1,6 +1,6 @@
 package gov.iti.jets.controller;
 
-import gov.iti.jets.model.dto.core.ActorModel;
+import gov.iti.jets.model.dto.inventory.ActorModel;
 import gov.iti.jets.service.ActorService;
 import gov.iti.jets.service.ActorServiceImpl;
 import jakarta.ws.rs.GET;
@@ -16,36 +16,41 @@ import java.util.Optional;
 @Path("/actors")
 public class ActorController implements CrudController<ActorModel> {
 
-    ActorService actorService = new ActorServiceImpl();
+    ActorServiceImpl actorService = new ActorServiceImpl();
 
-    @Override
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ActorModel getById(@PathParam("id") String id) {
-        Optional<ActorModel> actor = actorService.getActor(id);
-        return actor.get();
+    public List<ActorModel> findAll() {
+        return actorService.findAll();
     }
 
-    @Override
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<ActorModel> list() {
-        return actorService.getActorList();
+    public void deleteById(Integer id) {
+        actorService.deleteById(id);
     }
 
-    @Override
-    public ActorModel add(ActorModel model) {
-        return null;
+    public void delete(ActorModel dto) {
+        actorService.delete(dto);
     }
 
-    @Override
-    public ActorModel update(String id, ActorModel model) {
-        return null;
+    public boolean existsById(Integer id) {
+        return actorService.existsById(id);
     }
 
-    @Override
-    public void delete(String id) {
+    public long count() {
+        return actorService.count();
+    }
 
+    public ActorModel findById(Integer id) {
+        return actorService.findById(id);
+    }
+
+    public void save(ActorModel dto) {
+        actorService.save(dto);
+    }
+
+    public void update(ActorModel dto) {
+        actorService.update(dto);
+    }
+
+    public void updateById(Integer id) {
+        actorService.updateById(id);
     }
 }
