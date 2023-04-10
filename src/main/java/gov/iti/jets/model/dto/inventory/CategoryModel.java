@@ -23,7 +23,7 @@ import java.util.Collection;
 @AllArgsConstructor
 public class CategoryModel extends BaseDto {
     @Convert(converter = CategoryConverter.class)
-    private Category categoryId;
+    private Category id;
 
     @Size(min = 1, max = 25)
     private String name;
@@ -39,13 +39,13 @@ public class CategoryModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoryModel that = (CategoryModel) o;
-        return categoryId == that.categoryId
+        return id == that.id
                 && Objects.equal(name, that.name)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(categoryId, name, lastUpdate);
+        return Objects.hashCode(id, name, lastUpdate);
     }
 }

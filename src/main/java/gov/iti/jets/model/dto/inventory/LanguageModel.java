@@ -19,7 +19,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LanguageModel extends BaseDto {
-    private Language languageId;
+    private Language id;
 
     @Size(min = 1, max = 20)
     private String name;
@@ -37,13 +37,13 @@ public class LanguageModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LanguageModel that = (LanguageModel) o;
-        return languageId == that.languageId
+        return id == that.id
                 && Objects.equal(name, that.name)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(languageId, name, lastUpdate);
+        return Objects.hashCode(id, name, lastUpdate);
     }
 }

@@ -20,7 +20,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CityModel extends BaseDto {
-    private Integer cityId;
+    private Integer id;
 
     @Size(min = 1, max = 50)
     private String city;
@@ -42,7 +42,7 @@ public class CityModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CityModel that = (CityModel) o;
-        return Objects.equal(cityId, that.cityId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(city, that.city)
                 && countryId == that.countryId
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -50,6 +50,6 @@ public class CityModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(cityId, city, countryId, lastUpdate);
+        return Objects.hashCode(id, city, countryId, lastUpdate);
     }
 }

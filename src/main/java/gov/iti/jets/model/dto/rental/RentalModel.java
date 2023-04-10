@@ -19,7 +19,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RentalModel extends BaseDto {
-    private Integer rentalId;
+    private Integer id;
 
     private LocalDateTime rentalDate;
 
@@ -50,7 +50,7 @@ public class RentalModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RentalModel that = (RentalModel) o;
-        return Objects.equal(rentalId, that.rentalId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(rentalDate, that.rentalDate)
                 && Objects.equal(inventoryId, that.inventoryId)
                 && Objects.equal(customerId, that.customerId)
@@ -61,7 +61,7 @@ public class RentalModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(rentalId, rentalDate, inventoryId, customerId, returnDate,
+        return Objects.hashCode(id, rentalDate, inventoryId, customerId, returnDate,
                 staffId, lastUpdate);
     }
 }

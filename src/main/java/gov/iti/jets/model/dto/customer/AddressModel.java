@@ -21,7 +21,7 @@ import java.util.Collection;
 @AllArgsConstructor
 public class AddressModel extends BaseDto {
 
-    private Integer addressId;
+    private Integer id;
 
     @Size(min = 1, max = 50)
     private String address;
@@ -72,7 +72,7 @@ public class AddressModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AddressModel that = (AddressModel) o;
-        return Objects.equal(addressId, that.addressId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(address, that.address)
                 && Objects.equal(address2, that.address2)
                 && Objects.equal(district, that.district)
@@ -86,6 +86,6 @@ public class AddressModel extends BaseDto {
     @Override
     public int hashCode() {
         // return Objects.hashCode(addressId, address, address2, district, cityId, postalCode, phone, location, lastUpdate);
-        return Objects.hashCode(addressId, address, address2, district, cityId, postalCode, phone, lastUpdate);
+        return Objects.hashCode(id, address, address2, district, cityId, postalCode, phone, lastUpdate);
     }
 }

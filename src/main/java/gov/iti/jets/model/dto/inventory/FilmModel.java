@@ -28,7 +28,7 @@ import java.util.EnumSet;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FilmModel extends BaseDto {
-    private Integer filmId;
+    private Integer id;
 
     @Size(min = 1, max = 128)
     private String title;
@@ -79,7 +79,7 @@ public class FilmModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FilmModel that = (FilmModel) o;
-        return Objects.equal(filmId, that.filmId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(title, that.title)
                 && Objects.equal(description, that.description)
                 && Objects.equal(releaseYear, that.releaseYear)
@@ -96,7 +96,7 @@ public class FilmModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(filmId, title, description, releaseYear,
+        return Objects.hashCode(id, title, description, releaseYear,
                 languageId, originalLanguageId, rentalDuration, rentalRate, length,
                 replacementCost, rating, specialFeatures, lastUpdate);
     }

@@ -19,7 +19,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InventoryModel extends BaseDto {
-    private Integer inventoryId;
+    private Integer id;
 
     private Integer filmId;
 
@@ -41,7 +41,7 @@ public class InventoryModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InventoryModel that = (InventoryModel) o;
-        return Objects.equal(inventoryId, that.inventoryId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(filmId, that.filmId)
                 && Objects.equal(storeId, that.storeId)
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -49,6 +49,6 @@ public class InventoryModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(inventoryId, filmId, storeId, lastUpdate);
+        return Objects.hashCode(id, filmId, storeId, lastUpdate);
     }
 }

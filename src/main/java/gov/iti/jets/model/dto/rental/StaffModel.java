@@ -19,7 +19,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StaffModel extends BaseDto {
-    private Integer staffId;
+    private Integer id;
 
     private FullName fullName;
 
@@ -63,7 +63,7 @@ public class StaffModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StaffModel that = (StaffModel) o;
-        return Objects.equal(staffId, that.staffId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(fullName, that.fullName)
                 && Objects.equal(addressId, that.addressId)
                 // && Objects.equal(picture, that.picture)
@@ -79,7 +79,7 @@ public class StaffModel extends BaseDto {
     public int hashCode() {
         // return Objects.hashCode(staffId, fullName, addressId, picture, email,
         //         storeId, active, username, password, lastUpdate);
-        return Objects.hashCode(staffId, fullName, addressId, email,
+        return Objects.hashCode(id, fullName, addressId, email,
                 storeId, active, username, password, lastUpdate);
     }
 }

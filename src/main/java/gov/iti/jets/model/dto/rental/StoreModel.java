@@ -20,7 +20,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StoreModel extends BaseDto {
-    private Integer storeId;
+    private Integer id;
 
     private Integer managerStaffId;
 
@@ -48,7 +48,7 @@ public class StoreModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StoreModel that = (StoreModel) o;
-        return Objects.equal(storeId, that.storeId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(managerStaffId, that.managerStaffId)
                 && Objects.equal(addressId, that.addressId)
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -56,6 +56,6 @@ public class StoreModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(storeId, managerStaffId, addressId, lastUpdate);
+        return Objects.hashCode(id, managerStaffId, addressId, lastUpdate);
     }
 }

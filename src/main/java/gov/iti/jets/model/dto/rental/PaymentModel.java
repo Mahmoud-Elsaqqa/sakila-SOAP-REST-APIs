@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentModel extends BaseDto {
-    private Integer paymentId;
+    private Integer id;
 
     private Integer customerId;
 
@@ -46,7 +46,7 @@ public class PaymentModel extends BaseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PaymentModel that = (PaymentModel) o;
-        return Objects.equal(paymentId, that.paymentId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(customerId, that.customerId)
                 && Objects.equal(staffId, that.staffId)
                 && Objects.equal(rentalId, that.rentalId)
@@ -57,7 +57,7 @@ public class PaymentModel extends BaseDto {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(paymentId, customerId, staffId, rentalId, amount,
+        return Objects.hashCode(id, customerId, staffId, rentalId, amount,
                 paymentDate, lastUpdate);
     }
 }
