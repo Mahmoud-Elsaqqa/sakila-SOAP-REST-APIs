@@ -1,86 +1,62 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.dto.core.ActorModel;
-import gov.iti.jets.model.dto.core.FilmModel;
-import gov.iti.jets.model.dto.extra.ActorDetailsModel;
-import gov.iti.jets.model.dto.extra.FilmDetailsModel;
-import gov.iti.jets.repository.ActorRepository;
+import gov.iti.jets.model.dto.inventory.ActorModel;
+import gov.iti.jets.model.mapping.mapper.ActorMapper;
 import gov.iti.jets.repository.ActorRepositoryImpl;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
-import java.util.Optional;
 
-public class ActorServiceImpl implements ActorService {
-    ActorRepository actorRepository = new ActorRepositoryImpl();
+public class ActorServiceImpl implements CrudServices<ActorModel, Integer> {
+    ActorRepositoryImpl repository = new ActorRepositoryImpl();
+    ActorMapper mapper = ActorMapper.INSTANCE;
 
     @Override
-    public List<ActorModel> getActorList() {
-        return actorRepository.findAll();
+    public List<ActorModel> findAll() {
+        return mapper.mapToDtoList(repository.findAll());
     }
 
     @Override
-    public Optional<ActorModel> getActor(String actorId) {
-        return Optional.of(actorRepository.findById(Integer.valueOf(actorId)))
-                .orElseThrow(() -> new IllegalArgumentException("No such Actor!"));
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 
     @Override
-    public List<ActorDetailsModel> getActorDetailsList() {
-        return null;
+    public void delete(ActorModel dto) {
+        repository.delete(mapper.mapToEntity(dto));
     }
 
     @Override
-    public Optional<ActorDetailsModel> getActorDetails(String actorId) {
-        return Optional.empty();
+    public boolean existsById(Integer id) {
+        return repository.existsById(id);
     }
 
     @Override
-    public List<FilmModel> getActorFilmList(String actorId) {
-        return null;
+    public long count() {
+        return repository.count();
     }
 
     @Override
-    public List<FilmModel> getActorFilmList(String actorId, String releaseYear, String rating) {
-        return null;
+    public ActorModel findById(Integer id) {
+        var entity = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No such id"));
+        return mapper.mapToDto(entity);
     }
 
     @Override
-    public Optional<FilmModel> getActorFilm(String actorId, String filmId) {
-        return Optional.empty();
+    public void save(ActorModel dto) {
+        var entity = mapper.mapToEntity(dto);
+        repository.save(entity);
     }
 
     @Override
-    public Optional<FilmDetailsModel> getActorFilmDetails(String actorId, String filmId) {
-        return Optional.empty();
+    public void update(ActorModel dto) {
+        var entity = mapper.mapToEntity(dto);
+        repository.update(entity);
     }
 
     @Override
-    public List<ActorModel> searchActorList(String name) {
-        return null;
-    }
-
-    @Override
-    public ActorModel addActor(ActorModel model) {
-        return null;
-    }
-
-    @Override
-    public FilmModel addActorFilm(String actorId, String filmId) {
-        return null;
-    }
-
-    @Override
-    public ActorModel updateActor(String actorId, ActorModel model) {
-        return null;
-    }
-
-    @Override
-    public void deleteActor(String actorId) {
-
-    }
-
-    @Override
-    public void removeActorFilm(String actorId, String filmId) {
-
+    public void updateById(Integer id) {
+        repository.updateById(id);
     }
 }

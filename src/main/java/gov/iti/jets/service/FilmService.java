@@ -1,8 +1,8 @@
 package gov.iti.jets.service;
 
 
-import gov.iti.jets.model.dto.core.ActorModel;
-import gov.iti.jets.model.dto.core.FilmModel;
+import gov.iti.jets.model.dto.inventory.ActorModel;
+import gov.iti.jets.model.dto.inventory.FilmModel;
 import gov.iti.jets.model.dto.extra.FilmDetailsModel;
 
 import java.util.List;

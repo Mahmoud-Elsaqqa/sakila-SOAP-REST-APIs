@@ -1,9 +1,9 @@
 package gov.iti.jets.service;
 
 
-import gov.iti.jets.model.dto.core.CustomerModel;
-import gov.iti.jets.model.dto.core.PaymentModel;
-import gov.iti.jets.model.dto.core.RentalModel;
+import gov.iti.jets.model.dto.customer.CustomerModel;
+import gov.iti.jets.model.dto.rental.PaymentModel;
+import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.dto.extra.CustomerDetailsModel;
 
 import java.util.List;

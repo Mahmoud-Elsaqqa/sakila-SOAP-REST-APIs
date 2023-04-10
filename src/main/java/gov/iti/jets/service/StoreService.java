@@ -1,8 +1,8 @@
 package gov.iti.jets.service;
 
 
-import gov.iti.jets.model.dto.core.StaffModel;
-import gov.iti.jets.model.dto.core.StoreModel;
+import gov.iti.jets.model.dto.rental.StaffModel;
+import gov.iti.jets.model.dto.rental.StoreModel;
 import gov.iti.jets.model.dto.extra.StoreDetailsModel;
 
 import java.util.List;

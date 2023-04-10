@@ -1,7 +1,7 @@
 package gov.iti.jets.service;
 
 
-import gov.iti.jets.model.dto.core.RentalModel;
+import gov.iti.jets.model.dto.rental.RentalModel;
 
 import java.util.List;
 import java.util.Optional;
