@@ -1,15 +1,15 @@
 package gov.iti.jets.repository;
 
-import gov.iti.jets.model.dto.core.CustomerModel;
-import gov.iti.jets.model.dto.core.PaymentModel;
-import gov.iti.jets.model.dto.core.RentalModel;
+import gov.iti.jets.model.dto.customer.CustomerModel;
+import gov.iti.jets.model.dto.rental.PaymentModel;
+import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.dto.extra.CustomerDetailsModel;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface CustomerRepository extends CrudRepository<CustomerModel, Integer>{
+public interface CustomerRepository {
     List<CustomerDetailsModel> findAllCustomerDetailsList();
 
     Optional<CustomerDetailsModel> findCustomerDetailsById(Integer  erId);
