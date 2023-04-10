@@ -34,7 +34,7 @@ public class RentalEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "rental_id", columnDefinition = "INT", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rentalId;
+    private Integer id;
 
     @Basic
     @Column(name = "rental_date", columnDefinition = "DATETIME", nullable = false)
@@ -107,7 +107,7 @@ public class RentalEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RentalEntity that = (RentalEntity) o;
-        return Objects.equal(rentalId, that.rentalId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(rentalDate, that.rentalDate)
                 && Objects.equal(inventoryId, that.inventoryId)
                 && Objects.equal(customerId, that.customerId)
@@ -118,6 +118,6 @@ public class RentalEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(rentalId, rentalDate, inventoryId, customerId, returnDate, staffId, lastUpdate);
+        return Objects.hashCode(id, rentalDate, inventoryId, customerId, returnDate, staffId, lastUpdate);
     }
 }

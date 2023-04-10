@@ -32,7 +32,7 @@ public class CountryEntity extends BaseEntity implements Serializable  {
     @Column(name = "country_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Convert(converter = CountryConverter.class)
-    private Country countryId;
+    private Country id;
 
     @Basic
     @Column(name = "country", length = 50, nullable = false)
@@ -61,13 +61,13 @@ public class CountryEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountryEntity that = (CountryEntity) o;
-        return countryId == that.countryId
+        return id == that.id
                 && Objects.equal(country, that.country)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(countryId, country, lastUpdate);
+        return Objects.hashCode(id, country, lastUpdate);
     }
 }

@@ -33,7 +33,7 @@ public class AddressEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "address_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer addressId;
+    private Integer id;
 
     @Basic
     @Column(name = "address", length = 50, nullable = false)
@@ -116,7 +116,7 @@ public class AddressEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AddressEntity that = (AddressEntity) o;
-        return Objects.equal(addressId, that.addressId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(address, that.address)
                 && Objects.equal(address2, that.address2)
                 && Objects.equal(district, that.district)
@@ -131,6 +131,6 @@ public class AddressEntity extends BaseEntity implements Serializable  {
     public int hashCode() {
         // return Objects.hashCode(addressId, address, address2, district, cityId, postalCode, phone,
         //         location, lastUpdate);
-        return Objects.hashCode(addressId, address, address2, district, cityId, postalCode, phone, lastUpdate);
+        return Objects.hashCode(id, address, address2, district, cityId, postalCode, phone, lastUpdate);
     }
 }

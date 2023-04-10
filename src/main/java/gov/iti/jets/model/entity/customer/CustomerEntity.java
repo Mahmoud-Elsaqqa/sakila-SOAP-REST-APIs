@@ -35,7 +35,7 @@ public class CustomerEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "customer_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customerId;
+    private Integer id;
 
     @Basic
     @Column(name = "store_id", columnDefinition = "TINYINT UNSIGNED", nullable = false,
@@ -109,7 +109,7 @@ public class CustomerEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerEntity that = (CustomerEntity) o;
-        return Objects.equal(customerId, that.customerId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(storeId, that.storeId)
                 && Objects.equal(fullName, that.fullName)
                 && Objects.equal(email, that.email)
@@ -121,7 +121,7 @@ public class CustomerEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(customerId, storeId, fullName, email, addressId, active,
+        return Objects.hashCode(id, storeId, fullName, email, addressId, active,
                 createDate, lastUpdate);
     }
 }

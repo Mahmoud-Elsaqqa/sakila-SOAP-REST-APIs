@@ -42,7 +42,7 @@ public class FilmEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "film_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer filmId;
+    private Integer id;
 
     @Basic
     @Column(name = "title", length = 128, nullable = false)
@@ -160,7 +160,7 @@ public class FilmEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FilmEntity that = (FilmEntity) o;
-        return Objects.equal(filmId, that.filmId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(title, that.title)
                 && Objects.equal(description, that.description)
                 && Objects.equal(releaseYear, that.releaseYear)
@@ -177,7 +177,7 @@ public class FilmEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(filmId, title, description, releaseYear, languageId, originalLanguageId,
+        return Objects.hashCode(id, title, description, releaseYear, languageId, originalLanguageId,
                 rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate);
     }
 }

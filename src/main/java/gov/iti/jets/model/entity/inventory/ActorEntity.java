@@ -30,7 +30,7 @@ public class ActorEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "actor_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer actorId;
+    private Integer id;
 
     @Embedded
     private FullName fullName;
@@ -56,13 +56,13 @@ public class ActorEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ActorEntity that = (ActorEntity) o;
-        return Objects.equal(actorId, that.actorId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(fullName, that.fullName)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(actorId, fullName, lastUpdate);
+        return Objects.hashCode(id, fullName, lastUpdate);
     }
 }

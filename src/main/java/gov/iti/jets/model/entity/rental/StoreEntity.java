@@ -33,7 +33,7 @@ public class StoreEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "store_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer storeId;
+    private Integer id;
 
     @Basic
     @Column(name = "manager_staff_id", columnDefinition = "TINYINT UNSIGNED", nullable = false,
@@ -89,7 +89,7 @@ public class StoreEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StoreEntity that = (StoreEntity) o;
-        return Objects.equal(storeId, that.storeId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(managerStaffId, that.managerStaffId)
                 && Objects.equal(addressId, that.addressId)
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -97,6 +97,6 @@ public class StoreEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(storeId, managerStaffId, addressId, lastUpdate);
+        return Objects.hashCode(id, managerStaffId, addressId, lastUpdate);
     }
 }

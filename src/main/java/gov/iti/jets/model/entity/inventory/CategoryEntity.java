@@ -31,7 +31,7 @@ public class CategoryEntity extends BaseEntity implements Serializable  {
     @Column(name = "category_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Convert(converter = CategoryConverter.class)
-    private Category categoryId;
+    private Category id;
 
     @Basic
     @Column(name = "name", length = 25, nullable = false)
@@ -60,13 +60,13 @@ public class CategoryEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoryEntity that = (CategoryEntity) o;
-        return categoryId == that.categoryId
+        return id == that.id
                 && Objects.equal(name, that.name)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(categoryId, name, lastUpdate);
+        return Objects.hashCode(id, name, lastUpdate);
     }
 }

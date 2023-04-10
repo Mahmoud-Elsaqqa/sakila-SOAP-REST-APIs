@@ -32,7 +32,7 @@ public class CityEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "city_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cityId;
+    private Integer id;
 
     @Basic
     @Column(name = "city", length = 50, nullable = false)
@@ -75,7 +75,7 @@ public class CityEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CityEntity that = (CityEntity) o;
-        return Objects.equal(cityId, that.cityId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(city, that.city)
                 && countryId == that.countryId
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -83,6 +83,6 @@ public class CityEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(cityId, city, countryId, lastUpdate);
+        return Objects.hashCode(id, city, countryId, lastUpdate);
     }
 }

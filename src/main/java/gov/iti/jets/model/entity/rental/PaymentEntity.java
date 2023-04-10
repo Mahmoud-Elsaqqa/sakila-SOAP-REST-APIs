@@ -31,7 +31,7 @@ public class PaymentEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "payment_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer paymentId;
+    private Integer id;
 
     @Basic
     @Column(name = "customer_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false,
@@ -98,7 +98,7 @@ public class PaymentEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PaymentEntity that = (PaymentEntity) o;
-        return Objects.equal(paymentId, that.paymentId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(customerId, that.customerId)
                 && Objects.equal(staffId, that.staffId)
                 && Objects.equal(rentalId, that.rentalId)
@@ -109,7 +109,7 @@ public class PaymentEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(paymentId, customerId, staffId, rentalId, amount,
+        return Objects.hashCode(id, customerId, staffId, rentalId, amount,
                 paymentDate, lastUpdate);
     }
 }

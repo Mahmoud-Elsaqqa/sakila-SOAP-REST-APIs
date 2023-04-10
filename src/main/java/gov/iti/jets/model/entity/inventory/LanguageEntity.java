@@ -32,7 +32,7 @@ public class LanguageEntity extends BaseEntity implements Serializable  {
     @Column(name = "language_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Convert(converter = LanguageConverter.class)
-    private Language languageId;
+    private Language id;
 
     @Basic
     @Column(name = "name", columnDefinition = "CHAR(20)", length = 20, nullable = false)
@@ -65,13 +65,13 @@ public class LanguageEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LanguageEntity that = (LanguageEntity) o;
-        return languageId == that.languageId
+        return id == that.id
                 && Objects.equal(name, that.name)
                 && Objects.equal(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(languageId, name, lastUpdate);
+        return Objects.hashCode(id, name, lastUpdate);
     }
 }

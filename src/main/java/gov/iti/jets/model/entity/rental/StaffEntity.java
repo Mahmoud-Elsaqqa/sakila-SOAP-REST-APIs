@@ -33,7 +33,7 @@ public class StaffEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "staff_id", columnDefinition = "TINYINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer staffId;
+    private Integer id;
 
     @Embedded
     private FullName fullName;
@@ -128,7 +128,7 @@ public class StaffEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StaffEntity that = (StaffEntity) o;
-        return Objects.equal(staffId, that.staffId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(fullName, that.fullName)
                 && Objects.equal(addressId, that.addressId)
                 // && Objects.equal(picture, that.picture)
@@ -144,7 +144,7 @@ public class StaffEntity extends BaseEntity implements Serializable  {
     public int hashCode() {
         // return Objects.hashCode(staffId, fullName, addressId, picture, email,
         //         storeId, active, username, password, lastUpdate);
-        return Objects.hashCode(staffId, fullName, addressId, email,
+        return Objects.hashCode(id, fullName, addressId, email,
                 storeId, active, username, password, lastUpdate);
     }
 }

@@ -32,7 +32,7 @@ public class InventoryEntity extends BaseEntity implements Serializable  {
     @Id
     @Column(name = "inventory_id", columnDefinition = "MEDIUMINT UNSIGNED", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer inventoryId;
+    private Integer id;
 
     @Basic
     @Column(name = "film_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false,
@@ -80,7 +80,7 @@ public class InventoryEntity extends BaseEntity implements Serializable  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InventoryEntity that = (InventoryEntity) o;
-        return Objects.equal(inventoryId, that.inventoryId)
+        return Objects.equal(id, that.id)
                 && Objects.equal(filmId, that.filmId)
                 && Objects.equal(storeId, that.storeId)
                 && Objects.equal(lastUpdate, that.lastUpdate);
@@ -88,6 +88,6 @@ public class InventoryEntity extends BaseEntity implements Serializable  {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(inventoryId, filmId, storeId, lastUpdate);
+        return Objects.hashCode(id, filmId, storeId, lastUpdate);
     }
 }
