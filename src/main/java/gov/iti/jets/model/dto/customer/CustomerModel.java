@@ -44,7 +44,8 @@ public class CustomerModel extends BaseDto {
     @JsonbTransient
     private StoreModel storeByStoreId;
 
-    @ToString.Exclude@JsonbTransient
+    @ToString.Exclude
+    @JsonbTransient
     private AddressModel addressByAddressId;
 
     @ToString.Exclude

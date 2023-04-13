@@ -1,5 +1,6 @@
 package gov.iti.jets.model.entity.inventory;
 
+
 import com.google.common.base.Objects;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;

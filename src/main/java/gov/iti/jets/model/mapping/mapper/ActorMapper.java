@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import java.time.LocalDateTime;
 
 @Mapper(componentModel = "default", imports = {LocalDateTime.class})
-public interface ActorMapper extends GenericMapper<ActorEntity, ActorModel> {
+public interface ActorMapper extends BaseMapper<ActorEntity, ActorModel> {
     ActorMapper INSTANCE = Mappers.getMapper(ActorMapper.class);
 
 //    @Mapping(target = "actorId", ignore = true)

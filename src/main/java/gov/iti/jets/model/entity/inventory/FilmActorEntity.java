@@ -1,5 +1,6 @@
 package gov.iti.jets.model.entity.inventory;
 
+
 import com.google.common.base.Objects;
 import gov.iti.jets.model.entity.BaseEntity;
 import jakarta.persistence.*;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmActorEntity extends BaseEntity implements Serializable  {
+public class FilmActorEntity extends BaseEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 

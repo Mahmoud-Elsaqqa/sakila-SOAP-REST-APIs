@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * For enforcing generic type
-* */
+ */
 @Getter
 @Setter
 public abstract class BaseDto {
