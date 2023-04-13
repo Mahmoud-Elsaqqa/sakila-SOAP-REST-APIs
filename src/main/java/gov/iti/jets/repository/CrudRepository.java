@@ -8,19 +8,19 @@ import java.util.Optional;
 /**
  * Inspired By CrudRepository of Spring-Data framework
  */
-public interface CrudRepository<T extends BaseEntity> {
+public interface CrudRepository<T extends BaseEntity, K> {
 
     List<T> findAll();
 
-    void deleteById(Integer id);
+    void deleteById(K id);
 
     void delete(T entity);
 
-    boolean existsById(Integer id);
+    boolean existsById(K id);
 
     long count();
 
-    Optional<T> findById(Integer id);
+    Optional<T> findById(K id);
 
     void save(T entity);
 

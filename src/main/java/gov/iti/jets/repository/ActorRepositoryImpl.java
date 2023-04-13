@@ -13,45 +13,9 @@ import jakarta.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
-public class ActorRepositoryImpl implements CrudRepository<ActorEntity> {
+public class ActorRepositoryImpl extends CrudRepositoryImpl<ActorEntity, Integer> {
 
-    @Override
-    public List<ActorEntity> findAll() {
-        return null;
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
-    }
-
-    @Override
-    public void delete(ActorEntity entity) {
-
-    }
-
-    @Override
-    public boolean existsById(Integer id) {
-        return false;
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public Optional<ActorEntity> findById(Integer id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public void save(ActorEntity entity) {
-
-    }
-
-    @Override
-    public void update(ActorEntity entity) {
-
+    public ActorRepositoryImpl(Class<ActorEntity> entityClass) {
+        super(entityClass);
     }
 }
