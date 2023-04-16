@@ -24,6 +24,7 @@ public interface ActorMapper extends BaseMapper<ActorEntity, ActorModel, ActorRe
     @Mapping(source = "fullName.firstName", target = "firstName")
     @Mapping(source = "fullName.lastName", target = "lastName")
     ActorDetailsModel mapToActorDetails(ActorEntity entity);
+
     @Mapping(target = "filmActorsByActorId", ignore = true)
     ActorModel mapToDto(ActorEntity entity);
 }

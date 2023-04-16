@@ -9,7 +9,6 @@ import gov.iti.jets.model.entity.request.ActorRequestModel;
 import gov.iti.jets.model.mapping.mapper.ActorMapper;
 import gov.iti.jets.model.mapping.mapper.FilmMapper;
 import gov.iti.jets.repository.ActorRepository;
-import gov.iti.jets.repository.FilmActorRepository;
 import gov.iti.jets.repository.FilmRepository;
 
 import java.util.List;
@@ -19,7 +18,6 @@ public class ActorServiceImpl extends CrudServiceImpl<ActorEntity, ActorModel, A
 
     private static final ActorRepository repository = new ActorRepository(ActorEntity.class);
     private static final FilmRepository filmRepository = new FilmRepository(FilmEntity.class);
-    private static final FilmActorRepository filmActorRepository = new FilmActorRepository(FilmActorEntity.class);
     private static final ActorMapper mapper = ActorMapper.INSTANCE;
 
     public ActorServiceImpl() {

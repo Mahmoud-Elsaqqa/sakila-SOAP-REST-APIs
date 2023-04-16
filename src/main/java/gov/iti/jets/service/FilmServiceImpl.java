@@ -33,7 +33,7 @@ public class FilmServiceImpl extends CrudServiceImpl<FilmEntity, FilmModel, Film
     public FilmModel getFilmDetailsById(Integer filmId) {
         List<ActorDetailsModel> actorModels =
                 actorRepository.findAllActorsByFilmId(filmId).stream()
-                        .map(actorEntity -> ActorMapper.INSTANCE.mapToActorDetails(actorEntity))
+                        .map(ActorMapper.INSTANCE::mapToActorDetails)
                         .collect(Collectors.toList());
         FilmModel filmDetails = super.findById(filmId);
         filmDetails.setActors(actorModels);

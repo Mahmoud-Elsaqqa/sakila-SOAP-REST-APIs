@@ -49,9 +49,11 @@ public class CustomerModel extends BaseModel {
     private AddressModel addressByAddressId;
 
     @ToString.Exclude
+    @JsonbTransient
     private Collection<PaymentModel> paymentsByCustomerId;
 
     @ToString.Exclude
+    @JsonbTransient
     private Collection<RentalModel> rentalsByCustomerId;
 
     @Override

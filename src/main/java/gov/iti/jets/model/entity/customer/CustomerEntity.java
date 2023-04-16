@@ -86,11 +86,11 @@ public class CustomerEntity extends BaseEntity<CustomerEntity> implements Serial
     @ToString.Exclude
     private AddressEntity addressByAddressId;
 
-    @OneToMany(mappedBy = "customerByCustomerId", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customerByCustomerId", cascade = CascadeType.ALL)
     @ToString.Exclude
     private Collection<PaymentEntity> paymentsByCustomerId;
 
-    @OneToMany(mappedBy = "customerByCustomerId", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customerByCustomerId", cascade = CascadeType.ALL)
     @ToString.Exclude
     private Collection<RentalEntity> rentalsByCustomerId;
 
