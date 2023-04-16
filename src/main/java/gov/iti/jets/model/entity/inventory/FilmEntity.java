@@ -9,6 +9,7 @@ import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.LanguageConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -30,12 +31,12 @@ import java.util.EnumSet;
         @Index(name = "idx_fk_language_id", columnList = "language_id"),
         @Index(name = "idx_fk_original_language_id", columnList = "original_language_id")
 })
-@Getter
+@Data
 @ToString
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmEntity extends BaseEntity implements Serializable  {
+public class FilmEntity extends BaseEntity<FilmEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -59,7 +60,7 @@ public class FilmEntity extends BaseEntity implements Serializable  {
     @Basic
     @Column(name = "release_year", columnDefinition = "YEAR", nullable = true)
     @ColumnDefault("NULL")
-    private LocalDate releaseYear;
+    private int releaseYear;
 
     @Basic
     @Column(name = "language_id", columnDefinition = "TINYINT UNSIGNED", nullable = false,

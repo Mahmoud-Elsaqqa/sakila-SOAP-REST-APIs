@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmCategoryEntity extends BaseEntity implements Serializable  {
+public class FilmCategoryEntity extends BaseEntity<FilmCategoryEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

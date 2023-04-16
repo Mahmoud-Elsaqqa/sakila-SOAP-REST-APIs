@@ -1,24 +1,22 @@
 package gov.iti.jets.model.entity;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.UpdateTimestamp;
+import lombok.Getter;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * For enforcing generic type wildcard restriction
- * */
+ */
+@Getter
 @MappedSuperclass
-public class BaseEntity implements Serializable  {
-    @Basic
-    @Column(name = "last_update", columnDefinition = "TIMESTAMP", nullable = false)
-    @ColumnDefault("CURRENT_TIMESTAMP")
-    @UpdateTimestamp
-    @NotNull
-    private LocalDateTime lastUpdate;
+public abstract class BaseEntity<T extends BaseEntity> implements Serializable {
+    //    @Basic
+//    @Column(name = "last_update", columnDefinition = "TIMESTAMP", nullable = false)
+//    @ColumnDefault("CURRENT_TIMESTAMP")
+//    @UpdateTimestamp
+//    @NotNull
+//    private LocalDateTime lastUpdate;
+//    public abstract Object getId();
+    public abstract void update(T entity);
 }

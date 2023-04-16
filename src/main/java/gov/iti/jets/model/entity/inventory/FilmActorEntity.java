@@ -1,6 +1,5 @@
 package gov.iti.jets.model.entity.inventory;
 
-
 import com.google.common.base.Objects;
 import gov.iti.jets.model.entity.BaseEntity;
 import jakarta.persistence.*;
@@ -18,25 +17,25 @@ import java.time.LocalDateTime;
         @Index(name = "idx_fk_film_id", columnList = "film_id")
 })
 @IdClass(FilmActorEntityPK.class)
-@Getter
+@Data
 @ToString
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmActorEntity extends BaseEntity implements Serializable {
+public class FilmActorEntity extends BaseEntity<FilmActorEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "actor_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false,
             insertable = false, updatable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "increment")
     private Integer actorId;
 
     @Id
     @Column(name = "film_id", columnDefinition = "SMALLINT UNSIGNED", nullable = false,
             insertable = false, updatable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "increment")
     @NotNull
     private Integer filmId;
 

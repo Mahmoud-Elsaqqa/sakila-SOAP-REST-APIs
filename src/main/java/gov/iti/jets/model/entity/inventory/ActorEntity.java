@@ -3,6 +3,7 @@ package gov.iti.jets.model.entity.inventory;
 import com.google.common.base.Objects;
 import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.entity.FullName;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -18,12 +19,12 @@ import java.util.Collection;
 @Table(name = "actor", schema = "sakila", indexes = {
         @Index(name = "idx_actor_last_name", columnList = "last_name")
 })
-@Getter
+@Data
 @ToString
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class ActorEntity extends BaseEntity implements Serializable  {
+public class ActorEntity extends BaseEntity<ActorEntity> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -42,14 +43,19 @@ public class ActorEntity extends BaseEntity implements Serializable  {
     @NotNull
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "actorByActorId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @OneToMany(mappedBy = "actorByActorId", cascade = CascadeType.ALL)
     private Collection<FilmActorEntity> filmActorsByActorId;
 
     public void update(ActorEntity entity) {
         this.fullName = entity.fullName;
         this.lastUpdate = entity.lastUpdate;
     }
+
+//    public void addFilmActorsByActorId(FilmActorEntity filmActorEntity) {
+//        if (filmActorEntity != null)
+//            filmActorsByActorId.add(filmActorEntity);
+//    }
 
     @Override
     public boolean equals(Object o) {

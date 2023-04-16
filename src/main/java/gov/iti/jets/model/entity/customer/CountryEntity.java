@@ -24,7 +24,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class CountryEntity extends BaseEntity implements Serializable  {
+public class CountryEntity extends BaseEntity<CountryEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

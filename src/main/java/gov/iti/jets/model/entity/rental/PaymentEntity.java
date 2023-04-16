@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class PaymentEntity extends BaseEntity implements Serializable  {
+public class PaymentEntity extends BaseEntity<PaymentEntity> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 

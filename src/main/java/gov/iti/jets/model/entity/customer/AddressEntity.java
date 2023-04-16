@@ -26,7 +26,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class AddressEntity extends BaseEntity implements Serializable  {
+public class AddressEntity extends BaseEntity<AddressEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 

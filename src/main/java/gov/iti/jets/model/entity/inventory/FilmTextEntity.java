@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class FilmTextEntity extends BaseEntity implements Serializable  {
+public class FilmTextEntity extends BaseEntity<FilmTextEntity> implements Serializable  {
     @Serial
     private static final long serialVersionUID = 1L;
 
