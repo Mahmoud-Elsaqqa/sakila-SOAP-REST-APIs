@@ -1,7 +1,7 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.dto.BaseDto;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.BaseRequestModel;
 import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.mapping.mapper.BaseMapper;
 import gov.iti.jets.repository.CrudRepository;
@@ -9,19 +9,19 @@ import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
 
-public class CrudServiceImpl<T extends BaseDto, U extends BaseEntity, K> implements CrudService<T, K> {
+public class CrudServiceImpl<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel, K> implements CrudService<E, M, R, K> {
 
 
-    CrudRepository<U, K> repository;
-    BaseMapper<U, T> mapper;
+    CrudRepository<E, K> repository;
+    BaseMapper<E, M, R> mapper;
 
-    public CrudServiceImpl(CrudRepository<U, K> repository, BaseMapper<U, T> mapper) {
+    public CrudServiceImpl(CrudRepository<E, K> repository, BaseMapper<E, M, R> mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
 
     @Override
-    public List<T> findAll() {
+    public List<M> findAll() {
         return mapper.mapToDtoList(repository.findAll());
     }
 
@@ -30,10 +30,6 @@ public class CrudServiceImpl<T extends BaseDto, U extends BaseEntity, K> impleme
         repository.deleteById(id);
     }
 
-    @Override
-    public void delete(T dto) {
-        repository.delete(mapper.mapToEntity(dto));
-    }
 
     @Override
     public boolean existsById(K id) {
@@ -46,26 +42,22 @@ public class CrudServiceImpl<T extends BaseDto, U extends BaseEntity, K> impleme
     }
 
     @Override
-    public T findById(K id) {
+    public M findById(K id) {
         var entity = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No such id"));
         return mapper.mapToDto(entity);
     }
 
     @Override
-    public void save(T dto) {
-        var entity = mapper.mapToEntity(dto);
+    public void save(R requestDto) {
+        var entity = mapper.mapToEntity(requestDto);
         repository.save(entity);
     }
 
     @Override
-    public void update(T dto) {
-        var entity = mapper.mapToEntity(dto);
-        repository.update(entity);
+    public void update(K id, R requestDto) {
+        var entity = mapper.mapToEntity(requestDto);
+        repository.update(id, entity);
     }
 
-    @Override
-    public void updateById(K integer) {
-
-    }
 }

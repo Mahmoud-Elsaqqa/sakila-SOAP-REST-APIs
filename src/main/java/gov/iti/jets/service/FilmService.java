@@ -3,7 +3,7 @@ package gov.iti.jets.service;
 
 import gov.iti.jets.model.dto.inventory.ActorModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
-import gov.iti.jets.model.dto.extra.FilmDetailsModel;
+import gov.iti.jets.model.dto.response.FilmDetailsModel;
 
 import java.util.List;
 import java.util.Optional;

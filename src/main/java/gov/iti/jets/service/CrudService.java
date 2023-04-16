@@ -1,27 +1,26 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.BaseRequestModel;
+import gov.iti.jets.model.entity.BaseEntity;
 
 import java.util.List;
 
-public interface CrudService<T extends BaseDto, K> {
+public interface CrudService<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel, K> {
 
-    List<T> findAll();
+    List<M> findAll();
 
     void deleteById(K id);
-
-    void delete(T dto);
 
     boolean existsById(K id);
 
     long count();
 
-    T findById(K id);
+    M findById(K id);
 
-    void save(T dto);
+    void save(R dto);
 
-    void update(T dto);
+    void update(K id, R dto);
 
-    void updateById(K id);
 }
 

@@ -1,14 +1,42 @@
 package gov.iti.jets.service;
 
 import gov.iti.jets.model.dto.inventory.ActorModel;
+import gov.iti.jets.model.dto.response.ActorDetailsModel;
 import gov.iti.jets.model.entity.inventory.ActorEntity;
+import gov.iti.jets.model.entity.inventory.FilmActorEntity;
+import gov.iti.jets.model.entity.inventory.FilmEntity;
+import gov.iti.jets.model.entity.request.ActorRequestModel;
 import gov.iti.jets.model.mapping.mapper.ActorMapper;
-import gov.iti.jets.model.mapping.mapper.ActorMapperImpl;
-import gov.iti.jets.repository.ActorRepositoryImpl;
-import org.mapstruct.factory.Mappers;
+import gov.iti.jets.model.mapping.mapper.FilmMapper;
+import gov.iti.jets.repository.ActorRepository;
+import gov.iti.jets.repository.FilmActorRepository;
+import gov.iti.jets.repository.FilmRepository;
 
-public class ActorServiceImpl extends CrudServiceImpl<ActorModel, ActorEntity, Integer> {
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ActorServiceImpl extends CrudServiceImpl<ActorEntity, ActorModel, ActorRequestModel, Integer> {
+
+    private static final ActorRepository repository = new ActorRepository(ActorEntity.class);
+    private static final FilmRepository filmRepository = new FilmRepository(FilmEntity.class);
+    private static final FilmActorRepository filmActorRepository = new FilmActorRepository(FilmActorEntity.class);
+    private static final ActorMapper mapper = ActorMapper.INSTANCE;
+
     public ActorServiceImpl() {
-        super(new ActorRepositoryImpl(ActorEntity.class), ActorMapper.INSTANCE);
+        super(repository, mapper);
+    }
+
+    public List<ActorModel> findAllActorsByFilmId(Integer filmId) {
+        return
+                mapper.mapToDtoList(repository.findAllActorsByFilmId(filmId));
+    }
+
+    public ActorDetailsModel getActorDetailsById(Integer id) {
+        ActorDetailsModel actorDetails = repository.getActorDetails(id);
+        actorDetails.setFilmInfo(
+                FilmMapper.INSTANCE.mapToDtoList(
+                        filmRepository.findAllFilmsByActorId(id))
+        );
+        return actorDetails;
     }
 }
