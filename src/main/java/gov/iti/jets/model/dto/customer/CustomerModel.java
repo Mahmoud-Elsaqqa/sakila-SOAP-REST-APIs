@@ -2,7 +2,7 @@ package gov.iti.jets.model.dto.customer;
 
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.FullName;
 import gov.iti.jets.model.dto.rental.PaymentModel;
 import gov.iti.jets.model.dto.rental.RentalModel;
@@ -22,7 +22,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerModel extends BaseDto {
+public class CustomerModel extends BaseModel {
     private Integer id;
 
     private Integer storeId;

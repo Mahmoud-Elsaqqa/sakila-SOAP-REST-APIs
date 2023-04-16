@@ -1,7 +1,7 @@
 package gov.iti.jets.model.dto.customer;
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.rental.StaffModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
 import jakarta.json.bind.annotation.JsonbTransient;
@@ -19,7 +19,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressModel extends BaseDto {
+public class AddressModel extends BaseModel {
 
     private Integer id;
 

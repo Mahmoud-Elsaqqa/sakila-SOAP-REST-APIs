@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.inventory;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Category;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import jakarta.persistence.Convert;
 import lombok.*;
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmCategoryModel extends BaseDto {
+public class FilmCategoryModel extends BaseModel {
     private Integer filmId;
 
     @Convert(converter = CategoryConverter.class)

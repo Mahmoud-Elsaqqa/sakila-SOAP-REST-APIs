@@ -2,7 +2,7 @@ package gov.iti.jets.model.dto.inventory;
 
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
 import lombok.*;
@@ -18,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InventoryModel extends BaseDto {
+public class InventoryModel extends BaseModel {
     private Integer id;
 
     private Integer filmId;

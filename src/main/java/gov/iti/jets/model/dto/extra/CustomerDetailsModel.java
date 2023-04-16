@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.extra;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Country;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CountryConverter;
 import jakarta.persistence.Convert;
 import lombok.*;
@@ -19,7 +19,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDetailsModel extends BaseDto {
+public class CustomerDetailsModel extends BaseModel {
     /**
      * customer id
      */

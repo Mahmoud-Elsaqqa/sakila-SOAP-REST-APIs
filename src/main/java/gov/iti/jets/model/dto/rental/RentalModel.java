@@ -2,7 +2,7 @@ package gov.iti.jets.model.dto.rental;
 
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.customer.CustomerModel;
 import gov.iti.jets.model.dto.inventory.InventoryModel;
 import lombok.*;
@@ -18,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RentalModel extends BaseDto {
+public class RentalModel extends BaseModel {
     private Integer id;
 
     private LocalDateTime rentalDate;

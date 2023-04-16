@@ -1,7 +1,7 @@
 package gov.iti.jets.model.dto.rental;
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.FullName;
 import gov.iti.jets.model.dto.customer.AddressModel;
 import jakarta.validation.constraints.Size;
@@ -18,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StaffModel extends BaseDto {
+public class StaffModel extends BaseModel {
     private Integer id;
 
     private FullName fullName;

@@ -2,7 +2,7 @@ package gov.iti.jets.model.dto.rental;
 
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.customer.CustomerModel;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentModel extends BaseDto {
+public class PaymentModel extends BaseModel {
     private Integer id;
 
     private Integer customerId;

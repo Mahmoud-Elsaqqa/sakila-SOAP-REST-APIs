@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.inventory;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Language;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -18,7 +18,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LanguageModel extends BaseDto {
+public class LanguageModel extends BaseModel {
     private Language id;
 
     @Size(min = 1, max = 20)

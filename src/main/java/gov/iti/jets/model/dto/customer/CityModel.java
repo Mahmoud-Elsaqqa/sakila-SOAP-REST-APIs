@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.customer;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Country;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -19,7 +19,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CityModel extends BaseDto {
+public class CityModel extends BaseModel {
     private Integer id;
 
     @Size(min = 1, max = 50)

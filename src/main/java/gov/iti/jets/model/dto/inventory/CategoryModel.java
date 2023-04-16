@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.inventory;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Category;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
@@ -21,7 +21,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryModel extends BaseDto {
+public class CategoryModel extends BaseModel {
     @Convert(converter = CategoryConverter.class)
     private Category id;
 

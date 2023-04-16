@@ -3,7 +3,7 @@ package gov.iti.jets.model.dto.extra;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Category;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import jakarta.persistence.Convert;
 import lombok.*;
@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategorySalesModel extends BaseDto {
+public class CategorySalesModel extends BaseModel {
     /**
      * category
      */

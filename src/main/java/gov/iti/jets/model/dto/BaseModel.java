@@ -8,5 +8,5 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class BaseDto {
+public abstract class BaseModel {
 }

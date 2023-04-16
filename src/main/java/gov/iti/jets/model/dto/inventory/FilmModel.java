@@ -2,23 +2,24 @@ package gov.iti.jets.model.dto.inventory;
 
 
 import com.google.common.base.Objects;
+import gov.iti.jets.model.constant.Category;
 import gov.iti.jets.model.constant.FilmRating;
 import gov.iti.jets.model.constant.Language;
 import gov.iti.jets.model.constant.SpecialFeature;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.response.ActorDetailsModel;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
-import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.EnumSet;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ import java.util.EnumSet;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmModel extends BaseDto {
+public class FilmModel extends BaseModel {
     private Integer id;
 
     @Size(min = 1, max = 128)
@@ -36,7 +37,7 @@ public class FilmModel extends BaseDto {
     @Size(max = 65535)
     private String description;
 
-    private LocalDate releaseYear;
+    private int releaseYear;
 
     private Language languageId;
 
@@ -65,11 +66,10 @@ public class FilmModel extends BaseDto {
     private LanguageModel languageByOriginalLanguageId;
 
     @ToString.Exclude
-    @JsonbTransient
-    private Collection<FilmActorModel> filmActorsByFilmId;
+    private List<ActorDetailsModel> actors;
 
     @ToString.Exclude
-    private Collection<FilmCategoryModel> filmCategoriesByFilmId;
+    private Collection<Category> categories;
 
     @ToString.Exclude
     private Collection<InventoryModel> inventoriesByFilmId;

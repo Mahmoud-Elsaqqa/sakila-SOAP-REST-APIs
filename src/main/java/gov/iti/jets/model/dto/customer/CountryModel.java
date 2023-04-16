@@ -2,7 +2,7 @@ package gov.iti.jets.model.dto.customer;
 
 import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Country;
-import gov.iti.jets.model.dto.BaseDto;
+import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CountryConverter;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
@@ -20,7 +20,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CountryModel extends BaseDto {
+public class CountryModel extends BaseModel {
     private Country countryId;
 
     @Convert(converter = CountryConverter.class)
