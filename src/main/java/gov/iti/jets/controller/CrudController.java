@@ -1,29 +1,27 @@
 package gov.iti.jets.controller;
 
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.BaseRequestModel;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-public interface CrudController<T> {
+public interface CrudController<M extends BaseModel, R extends BaseRequestModel> {
 
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    List<T> findAll();
+    List<M> findAll();
 
     @DELETE
     @Path("/{id}")
     void deleteById(@PathParam("id") Integer id);
 
-    @DELETE
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    void delete(T dto);
-
     @HEAD
     @Path("/{id}")
-    boolean existsById(@PathParam("id") Integer id);
+    Response existsById(@PathParam("id") Integer id);
 
     @GET
     @Path("/count")
@@ -32,22 +30,19 @@ public interface CrudController<T> {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    T findById(@PathParam("id") Integer id);
+    M findById(@PathParam("id") Integer id);
 
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    void save(T dto);
-
-    @PUT
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    void update(T dto);
+    void save(R requestDto);
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    void updateById(@PathParam("id") Integer id);
+    void update(@PathParam("id") Integer id, R requestDto);
+
 }
+
 
 

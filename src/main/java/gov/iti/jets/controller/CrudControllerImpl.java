@@ -1,19 +1,24 @@
 package gov.iti.jets.controller;
 
-import gov.iti.jets.model.dto.BaseDto;
+
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.BaseRequestModel;
+import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.service.CrudService;
+import gov.iti.jets.service.CrudServiceImpl;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-public class CrudControllerImpl<T extends BaseDto> implements CrudController<T> {
+public class CrudControllerImpl<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel> implements CrudController<M, R> {
 
-    CrudService<T, Integer> service;
+    CrudService<E, M, R, Integer> service;
 
-    public CrudControllerImpl(CrudService<T, Integer> service) {
+    public CrudControllerImpl(CrudServiceImpl<E, M, R, Integer> service) {
         this.service = service;
     }
 
-    public List<T> findAll() {
+    public List<M> findAll() {
         return service.findAll();
     }
 
@@ -21,31 +26,27 @@ public class CrudControllerImpl<T extends BaseDto> implements CrudController<T> 
         service.deleteById(id);
     }
 
-    public void delete(T dto) {
-        service.delete(dto);
-    }
 
-    public boolean existsById(Integer id) {
-        return service.existsById(id);
+    public Response existsById(Integer id) {
+        if (service.existsById(id))
+            return Response.ok().build();
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     public long count() {
         return service.count();
     }
 
-    public T findById(Integer id) {
+    public M findById(Integer id) {
         return service.findById(id);
     }
 
-    public void save(T dto) {
-        service.save(dto);
+    public void save(R requestDto) {
+        service.save(requestDto);
     }
 
-    public void update(T dto) {
-        service.update(dto);
+    public void update(Integer id, R requestDto) {
+        service.update(id, requestDto);
     }
 
-    public void updateById(Integer id) {
-        service.updateById(id);
-    }
 }
