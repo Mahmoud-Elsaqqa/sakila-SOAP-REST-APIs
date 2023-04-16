@@ -34,7 +34,6 @@ public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudReposito
         return entityManager
                 .createQuery("FROM " + entityClass.getCanonicalName(), entityClass)
                 .getResultList();
-
     }
 
     @Override
