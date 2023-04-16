@@ -1,16 +1,20 @@
 package gov.iti.jets.model.mapping.mapper;
 
-import gov.iti.jets.model.dto.BaseDto;
+
+import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.dto.BaseRequestModel;
 import gov.iti.jets.model.entity.BaseEntity;
 
 import java.util.List;
 
-public interface BaseMapper<T extends BaseEntity, U extends BaseDto> {
-    U mapToDto(T entity);
+public interface BaseMapper<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel> {
+    M mapToDto(E entity);
 
-    T mapToEntity(U dto);
+    E mapToEntity(M dto);
 
-    List<U> mapToDtoList(List<T> entityList);
+    E mapToEntity(R requestDto);
 
-    List<T> mapToEntityList(List<U> dtoList);
+    List<M> mapToDtoList(List<E> entityList);
+
+    List<E> mapToEntityList(List<M> dtoList);
 }
