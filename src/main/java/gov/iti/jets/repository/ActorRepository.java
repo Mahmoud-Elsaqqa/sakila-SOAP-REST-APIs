@@ -1,30 +1,32 @@
 package gov.iti.jets.repository;
 
+import gov.iti.jets.model.dto.response.ActorDetailsModel;
+import gov.iti.jets.model.entity.inventory.ActorEntity;
+import gov.iti.jets.util.EntityManagerHelper;
 
-import gov.iti.jets.model.constant.FilmRating;
-import gov.iti.jets.model.dto.inventory.ActorModel;
-import gov.iti.jets.model.dto.inventory.FilmModel;
-import gov.iti.jets.model.dto.extra.ActorDetailsModel;
-import gov.iti.jets.model.dto.extra.FilmDetailsModel;
-
-import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
-public interface ActorRepository {
-    List<ActorDetailsModel> findAllActorDetailsList();
+public class ActorRepository extends CrudRepositoryImpl<ActorEntity, Integer> {
 
-    Optional<ActorDetailsModel> findActorDetailsById(Integer actorId);
+    public ActorRepository(Class<ActorEntity> entityClass) {
+        super(entityClass);
+    }
 
-    List<FilmModel> findAllActorFilmListById(Integer actorId);
+    public ActorDetailsModel getActorDetails(Integer actorId) {
+        ActorDetailsModel actorDetailsModel = EntityManagerHelper.getEntityManager()
+                .createQuery("SELECT NEW gov.iti.jets.model.dto.response.ActorDetailsModel (a.id, a.fullName.firstName, a.fullName.lastName) " +
+                        "FROM actor a WHERE a.id = :id", ActorDetailsModel.class)
+                .setParameter("id", actorId)
+                .getSingleResult();
+        return actorDetailsModel;
+    }
 
-    List<FilmModel> findAllActorFilmListByIdWithFilter(Integer actorId, LocalDate releaseYear, FilmRating rating);
-
-    Optional<FilmModel> findActorFilmById(Integer actorId, Integer filmId);
-
-    Optional<FilmDetailsModel> findActorFilmDetailsById(Integer actorId, Integer filmId);
-
-    Optional<FilmModel> addActorFilm(Integer actorId, Integer filmId);
-
-    void removeActorFilm(Integer actorId, Integer filmId);
+    public List<ActorEntity> findAllActorsByFilmId(Integer filmId) {
+        return
+                EntityManagerHelper.getEntityManager()
+                        .createQuery("SELECT actorByActorId FROM film_actor where filmId = :id", ActorEntity.class)
+                        .setParameter("id", filmId)
+                        .getResultList();
+    }
 }

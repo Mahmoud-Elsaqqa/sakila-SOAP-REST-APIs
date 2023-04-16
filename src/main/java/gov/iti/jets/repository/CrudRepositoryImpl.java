@@ -30,34 +30,34 @@ public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudReposito
 
     @Override
     public List<T> findAll() {
-        try (EntityManager entityManager = EntityManagerHelper.getEntityManager()) {
-            return entityManager
-                    .createQuery("FROM " + entityClass.getCanonicalName(), entityClass)
-                    .getResultList();
-        }
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        return entityManager
+                .createQuery("FROM " + entityClass.getCanonicalName(), entityClass)
+                .getResultList();
+
     }
 
     @Override
     public boolean existsById(K id) {
-        try (EntityManager entityManager = EntityManagerHelper.getEntityManager()) {
-            return entityManager.find(entityClass, id) != null;
-        }
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        return entityManager.find(entityClass, id) != null;
+
     }
 
     @Override
     public long count() {
-        try (EntityManager entityManager = EntityManagerHelper.getEntityManager()) {
-            TypedQuery<Long> query = entityManager
-                    .createQuery("SELECT COUNT(e) FROM " + entityClass.getCanonicalName() + " e", Long.class);
-            return query.getSingleResult();
-        }
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        TypedQuery<Long> query = entityManager
+                .createQuery("SELECT COUNT(e) FROM " + entityClass.getCanonicalName() + " e", Long.class);
+        return query.getSingleResult();
+
     }
 
     @Override
     public Optional<T> findById(K id) {
-        try (EntityManager entityManager = EntityManagerHelper.getEntityManager()) {
-            return Optional.ofNullable(entityManager.find(entityClass, id));
-        }
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        return Optional.ofNullable(entityManager.find(entityClass, id));
+
     }
 
     @Override
@@ -85,8 +85,10 @@ public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudReposito
     }
 
     @Override
-    public void update(T entity) {
+    public void update(K id, T entity) {
         executeInTransaction(entityManager -> {
+            T t = entityManager.getReference(entityClass, id);
+            t.update(entity);
             entityManager.merge(entity);
         }, "Couldn't update entity");
     }
@@ -96,7 +98,8 @@ public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudReposito
      * The method takes care of the boilerplate code related to transaction management and error handling.
      */
     private void executeInTransaction(Consumer<EntityManager> entityManagerConsumer, String errorMessage) {
-        try (EntityManager entityManager = EntityManagerHelper.getEntityManager()) {
+        EntityManager entityManager = EntityManagerHelper.getEntityManager();
+        try {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
             entityManagerConsumer.accept(entityManager);
