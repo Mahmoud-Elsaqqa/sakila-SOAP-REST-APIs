@@ -14,7 +14,6 @@ import jakarta.persistence.Convert;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

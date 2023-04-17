@@ -8,13 +8,14 @@ public class RequestListener implements ServletRequestListener {
     public static int counter = 0;
 
     @Override
-    public void requestInitialized(ServletRequestEvent sre){
+    public void requestInitialized(ServletRequestEvent sre) {
         EntityManager em = EntityManagerHelper.getEntityManager();
         sre.getServletRequest().setAttribute("entityManager", em);
     }
+
     @Override
-    public void requestDestroyed(ServletRequestEvent sre){
-        System.out.println("end = "+  ++counter);
+    public void requestDestroyed(ServletRequestEvent sre) {
+        System.out.println("end = " + ++counter);
         EntityManagerHelper.closeEntityManager();
     }
 }

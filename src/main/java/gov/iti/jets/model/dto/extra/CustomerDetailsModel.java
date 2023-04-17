@@ -2,9 +2,13 @@ package gov.iti.jets.model.dto.extra;
 
 
 import com.google.common.base.Objects;
-import gov.iti.jets.model.constant.Country;
+import java.lang.String;
 import gov.iti.jets.model.dto.BaseModel;
+import gov.iti.jets.model.entity.FullName;
 import gov.iti.jets.model.mapping.converter.CountryConverter;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbPropertyOrder;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
@@ -16,55 +20,58 @@ import lombok.experimental.FieldNameConstants;
 @Setter
 @ToString
 @FieldNameConstants
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@JsonbPropertyOrder({"id", "name", "email", "address", "zipCode",
+        "phone", "city", "country", "sid", "storeAddress"})
 public class CustomerDetailsModel extends BaseModel {
-    /**
-     * customer id
-     */
+    public CustomerDetailsModel(Integer id, FullName fullName, String email, String address, String zipCode, String phone, String city, String country, Integer sid, String storeAddress) {
+        this.id = id;
+        this.fullName = fullName;
+        this.name = fullName.getFirstName() + " " + fullName.getLastName();
+        this.email = email;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.phone = phone;
+        this.city = city;
+        this.country = country;
+        this.email = email;
+        this.sid = sid;
+        this.storeAddress = storeAddress;
+    }
+
+    @JsonbProperty("Customer ID")
     private Integer id;
 
-    /**
-     * customer name (first + last)
-     */
+    @JsonbTransient
+    private FullName fullName;
+
+    @JsonbProperty("Customer Name")
     private String name;
 
-    /**
-     * address
-     */
+    @JsonbProperty("Customer Address")
     private String address;
 
-    /**
-     * postal code
-     */
+    @JsonbProperty("Customer ZIP Code")
     private String zipCode;
 
-    /**
-     * phone number
-     */
+    @JsonbProperty("Customer Phone")
     private String phone;
 
-    /**
-     * city
-     */
+    @JsonbProperty("Customer City")
     private String city;
 
-    /**
-     * country
-     */
     @Convert(converter = CountryConverter.class)
-    private Country country;
+    @JsonbProperty("Customer Country")
+    private String country;
 
-    /**
-     * notes (whether the customer is active)
-     */
-    private String notes;
+    @JsonbProperty("Customer email")
+    private String email;
 
-    /**
-     * store id
-     */
+    @JsonbProperty("Customer Store ID")
     private Integer sid;
+
+    @JsonbProperty("Store Address")
+    private String storeAddress;
 
     @Override
     public boolean equals(Object o) {
@@ -78,12 +85,12 @@ public class CustomerDetailsModel extends BaseModel {
                 && Objects.equal(phone, that.phone)
                 && Objects.equal(city, that.city)
                 && country == that.country
-                && Objects.equal(notes, that.notes)
+                && Objects.equal(email, that.email)
                 && Objects.equal(sid, that.sid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, name, address, zipCode, phone, city, country, notes, sid);
+        return Objects.hashCode(id, name, address, zipCode, phone, city, country, email, sid);
     }
 }

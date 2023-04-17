@@ -1,4 +1,4 @@
 package gov.iti.jets.model.dto;
 
-public class FilmRequestModel extends BaseRequestModel{
+public class FilmRequestModel extends BaseRequestModel {
 }

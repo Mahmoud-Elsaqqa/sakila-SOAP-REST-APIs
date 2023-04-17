@@ -27,7 +27,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class RentalEntity extends BaseEntity<RentalEntity> implements Serializable  {
+public class RentalEntity extends BaseEntity<RentalEntity> implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 

@@ -5,14 +5,9 @@ import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbPropertyOrder;
-import jakarta.json.bind.annotation.JsonbTransient;
-import jakarta.json.bind.annotation.JsonbVisibility;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Method;
 import java.util.List;
 
 /**
