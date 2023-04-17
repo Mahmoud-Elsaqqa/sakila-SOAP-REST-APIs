@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.entity.FullName;
 import gov.iti.jets.model.entity.customer.AddressEntity;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -89,10 +90,12 @@ public class StaffEntity extends BaseEntity<StaffEntity> implements Serializable
 
     @OneToMany(mappedBy = "staffByStaffId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<PaymentEntity> paymentsByStaffId;
 
     @OneToMany(mappedBy = "staffByStaffId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<RentalEntity> rentalsByStaffId;
 
     @ManyToOne
@@ -109,6 +112,7 @@ public class StaffEntity extends BaseEntity<StaffEntity> implements Serializable
 
     @OneToMany(mappedBy = "staffByManagerStaffId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<StoreEntity> storesByStaffId;
 
     public void update(StaffEntity entity) {
