@@ -5,6 +5,7 @@ import gov.iti.jets.model.entity.BaseEntity;
 import gov.iti.jets.model.entity.customer.AddressEntity;
 import gov.iti.jets.model.entity.customer.CustomerEntity;
 import gov.iti.jets.model.entity.inventory.InventoryEntity;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -56,14 +57,17 @@ public class StoreEntity extends BaseEntity<StoreEntity> implements Serializable
 
     @OneToMany(mappedBy = "storeByStoreId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<CustomerEntity> customersByStoreId;
 
     @OneToMany(mappedBy = "storeByStoreId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<InventoryEntity> inventoriesByStoreId;
 
     @OneToMany(mappedBy = "storeByStoreId", cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonbTransient
     private Collection<StaffEntity> staffByStoreId;
 
     @ManyToOne
