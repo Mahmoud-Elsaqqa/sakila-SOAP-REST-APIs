@@ -5,6 +5,7 @@ import com.google.common.base.Objects;
 import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -18,6 +19,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class InventoryModel extends BaseModel {
     private Integer id;
 

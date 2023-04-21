@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint
+            name="ActorWS"
+            implementation="gov.iti.jets.soap.ActorWSImpl"
+            url-pattern="/ws/actors"/>
+    <endpoint
+            name="FilmWS"
+            implementation="gov.iti.jets.soap.FilmWSImpl"
+            url-pattern="/ws/films"/>
+    <endpoint
+            name="CustomerWS"
+            implementation="gov.iti.jets.soap.CustomerWSImpl"
+            url-pattern="/ws/customers"/>
+    <endpoint
+            name="PaymentWS"
+            implementation="gov.iti.jets.soap.PaymentWSImpl"
+            url-pattern="/ws/payments"/>
+    <endpoint
+            name="RentalWS"
+            implementation="gov.iti.jets.soap.RentalWSImpl"
+            url-pattern="/ws/rentals"/>
+    <endpoint
+            name="StaffWS"
+            implementation="gov.iti.jets.soap.StaffWSImpl"
+            url-pattern="/ws/staff"/>
+    <endpoint
+            name="StoreWS"
+            implementation="gov.iti.jets.soap.StoreWSImpl"
+            url-pattern="/ws/stores"/>
+</endpoints>

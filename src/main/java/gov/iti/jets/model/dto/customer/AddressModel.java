@@ -6,6 +6,7 @@ import gov.iti.jets.model.dto.rental.StaffModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -19,6 +20,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class AddressModel extends BaseModel {
 
     private Integer id;

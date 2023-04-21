@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.annotation.XmlType;
 import lombok.*;
 
 @Embeddable
@@ -13,6 +15,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@XmlType(name = "FullNameEntity", namespace = "FullNameE")
 public class FullName {
     @Basic
     @Column(name = "first_name", length = 45, nullable = false)

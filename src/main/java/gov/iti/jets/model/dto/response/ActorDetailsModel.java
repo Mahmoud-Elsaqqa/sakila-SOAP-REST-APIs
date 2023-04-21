@@ -5,6 +5,7 @@ import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbPropertyOrder;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -20,6 +21,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 @JsonbPropertyOrder({"Actor Id", "First Name", "Last Name", "List of Films"})
 public class ActorDetailsModel extends BaseModel {
 

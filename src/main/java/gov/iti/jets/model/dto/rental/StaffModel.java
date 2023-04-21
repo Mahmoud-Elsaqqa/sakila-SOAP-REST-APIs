@@ -5,6 +5,7 @@ import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.FullName;
 import gov.iti.jets.model.dto.customer.AddressModel;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -17,6 +18,7 @@ import java.util.Collection;
 @FieldNameConstants
 @Builder
 @NoArgsConstructor
+@XmlRootElement
 @AllArgsConstructor
 public class StaffModel extends BaseModel {
     private Integer id;

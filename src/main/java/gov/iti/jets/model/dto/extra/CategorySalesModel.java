@@ -6,6 +6,7 @@ import gov.iti.jets.model.constant.Category;
 import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import jakarta.persistence.Convert;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -21,6 +22,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class CategorySalesModel extends BaseModel {
     /**
      * category

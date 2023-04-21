@@ -5,6 +5,8 @@ import com.google.common.base.Objects;
 import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.customer.CustomerModel;
 import gov.iti.jets.model.dto.inventory.InventoryModel;
+import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -17,6 +19,7 @@ import java.util.Collection;
 @FieldNameConstants
 @Builder
 @NoArgsConstructor
+@XmlRootElement
 @AllArgsConstructor
 public class RentalModel extends BaseModel {
     private Integer id;
@@ -34,15 +37,19 @@ public class RentalModel extends BaseModel {
     private LocalDateTime lastUpdate;
 
     @ToString.Exclude
+    @JsonbTransient
     private Collection<PaymentModel> paymentsByRentalId;
 
     @ToString.Exclude
+    @JsonbTransient
     private InventoryModel inventoryByInventoryId;
 
     @ToString.Exclude
+    @JsonbTransient
     private CustomerModel customerByCustomerId;
 
     @ToString.Exclude
+    @JsonbTransient
     private StaffModel staffByStaffId;
 
     @Override

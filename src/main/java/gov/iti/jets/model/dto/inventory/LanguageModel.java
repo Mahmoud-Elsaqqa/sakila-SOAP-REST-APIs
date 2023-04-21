@@ -5,6 +5,7 @@ import com.google.common.base.Objects;
 import gov.iti.jets.model.constant.Language;
 import gov.iti.jets.model.dto.BaseModel;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -18,6 +19,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class LanguageModel extends BaseModel {
     private Language id;
 

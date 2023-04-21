@@ -6,6 +6,7 @@ import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.FullName;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -19,6 +20,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class ActorModel extends BaseModel {
 
 

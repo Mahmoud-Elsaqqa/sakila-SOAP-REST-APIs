@@ -10,6 +10,8 @@ import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbPropertyOrder;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -21,6 +23,7 @@ import lombok.experimental.FieldNameConstants;
 @ToString
 @FieldNameConstants
 @NoArgsConstructor
+@XmlRootElement
 @JsonbPropertyOrder({"id", "name", "email", "address", "zipCode",
         "phone", "city", "country", "sid", "storeAddress"})
 public class CustomerDetailsModel extends BaseModel {
@@ -43,7 +46,7 @@ public class CustomerDetailsModel extends BaseModel {
     private Integer id;
 
     @JsonbTransient
-    private FullName fullName;
+    private transient FullName fullName;
 
     @JsonbProperty("Customer Name")
     private String name;

@@ -3,6 +3,7 @@ package gov.iti.jets.model.dto.inventory;
 import com.google.common.base.Objects;
 import gov.iti.jets.model.dto.BaseModel;
 import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class FilmActorModel extends BaseModel {
     private Integer actorId;
 

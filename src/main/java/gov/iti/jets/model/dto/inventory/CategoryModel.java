@@ -8,6 +8,7 @@ import gov.iti.jets.model.mapping.converter.CategoryConverter;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -21,6 +22,7 @@ import java.util.Collection;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class CategoryModel extends BaseModel {
     @Convert(converter = CategoryConverter.class)
     private Category id;

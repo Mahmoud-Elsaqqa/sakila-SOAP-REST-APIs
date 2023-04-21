@@ -75,19 +75,19 @@ public class RentalEntity extends BaseEntity<RentalEntity> implements Serializab
     @ToString.Exclude
     private Collection<PaymentEntity> paymentsByRentalId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "inventory_id", referencedColumnName = "inventory_id", nullable = false)
     @NotNull
     @ToString.Exclude
     private InventoryEntity inventoryByInventoryId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id", nullable = false)
     @NotNull
     @ToString.Exclude
     private CustomerEntity customerByCustomerId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = false)
     @NotNull
     @ToString.Exclude

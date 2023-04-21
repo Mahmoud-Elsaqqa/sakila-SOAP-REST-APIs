@@ -1,6 +1,7 @@
 package gov.iti.jets.model.dto;
 
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -11,6 +12,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class FullName {
     @Size(min = 1, max = 45)
     private String firstName;

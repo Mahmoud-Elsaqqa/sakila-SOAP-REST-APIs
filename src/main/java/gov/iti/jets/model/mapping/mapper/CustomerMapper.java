@@ -26,9 +26,9 @@ public interface CustomerMapper extends BaseMapper<CustomerEntity, CustomerModel
 
 
     @Override
-    @Mapping(target = "addressByAddressId" , ignore = true)
     @Mapping(target = "paymentsByCustomerId" , ignore = true)
     @Mapping(target = "rentalsByCustomerId" , ignore = true)
     @Mapping(target = "storeByStoreId" , ignore = true)
+    @Mapping(target = "addressByAddressId" , ignore = true)
     CustomerModel mapToDto(CustomerEntity entity);
 }

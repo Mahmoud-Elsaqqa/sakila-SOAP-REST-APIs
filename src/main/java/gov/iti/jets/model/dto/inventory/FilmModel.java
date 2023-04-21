@@ -12,6 +12,7 @@ import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -27,6 +28,7 @@ import java.util.List;
 @FieldNameConstants
 @Builder
 @NoArgsConstructor
+@XmlRootElement
 @AllArgsConstructor
 public class FilmModel extends BaseModel {
     private Integer id;

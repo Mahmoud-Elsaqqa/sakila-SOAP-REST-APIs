@@ -7,6 +7,7 @@ import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -17,6 +18,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class ActorFilmDetailModel extends BaseModel {
 
     @JsonbProperty("Film ID")

@@ -11,6 +11,7 @@ import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbPropertyOrder;
 import jakarta.persistence.Convert;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -26,6 +27,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 @JsonbPropertyOrder({"Film Id", "Film Titile", "Film Description", "Film Duration", "Film Rating"})
 public class FilmDetailsModel extends BaseModel {
     public FilmDetailsModel(Integer filmId, String title, String description, Integer length, FilmRating rating) {

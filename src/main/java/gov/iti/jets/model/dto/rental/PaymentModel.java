@@ -4,6 +4,7 @@ package gov.iti.jets.model.dto.rental;
 import com.google.common.base.Objects;
 import gov.iti.jets.model.dto.BaseModel;
 import gov.iti.jets.model.dto.customer.CustomerModel;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @FieldNameConstants
 @Builder
 @NoArgsConstructor
+@XmlRootElement
 @AllArgsConstructor
 public class PaymentModel extends BaseModel {
     private Integer id;

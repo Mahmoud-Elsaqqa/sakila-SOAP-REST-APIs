@@ -4,5 +4,5 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 
-public class StaffRequestModel extends BaseRequestModel {
+public class RentalRequestModel extends BaseRequestModel {
 }

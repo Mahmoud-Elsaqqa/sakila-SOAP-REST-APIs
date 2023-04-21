@@ -88,7 +88,7 @@ public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudReposito
         executeInTransaction(entityManager -> {
             T t = entityManager.getReference(entityClass, id);
             t.update(entity);
-            entityManager.merge(entity);
+            entityManager.merge(t);
         }, "Couldn't update entity");
     }
 

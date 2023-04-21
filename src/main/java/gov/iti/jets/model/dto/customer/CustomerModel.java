@@ -9,6 +9,7 @@ import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -21,6 +22,7 @@ import java.util.Collection;
 @FieldNameConstants
 @Builder
 @NoArgsConstructor
+@XmlRootElement
 @AllArgsConstructor
 public class CustomerModel extends BaseModel {
     private Integer id;
@@ -41,11 +43,11 @@ public class CustomerModel extends BaseModel {
     private LocalDateTime lastUpdate;
 
     @ToString.Exclude
-    @JsonbTransient
+//    @JsonbTransient
     private StoreModel storeByStoreId;
 
     @ToString.Exclude
-    @JsonbTransient
+//    @JsonbTransient
     private AddressModel addressByAddressId;
 
     @ToString.Exclude

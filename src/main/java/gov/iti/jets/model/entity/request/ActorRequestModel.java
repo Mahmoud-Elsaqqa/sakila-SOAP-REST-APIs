@@ -3,6 +3,7 @@ package gov.iti.jets.model.entity.request;
 import com.google.common.base.Objects;
 import gov.iti.jets.model.dto.BaseRequestModel;
 import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
@@ -16,6 +17,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class ActorRequestModel extends BaseRequestModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

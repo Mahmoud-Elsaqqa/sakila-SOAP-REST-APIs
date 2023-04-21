@@ -28,12 +28,22 @@ public class CustomerController extends CrudControllerImpl<CustomerEntity, Custo
         return
                 Response.ok(service.getCustomerFullDetails(customerId)).build();
     }
+
     @Path("{id}/rentals/films")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRentedFilmsByCustomerId(@PathParam("id") Integer customerId) {
         return
                 Response.ok(service.getRentedFilmsByCustomerId(customerId)).build();
+    }
+
+    @Path("{id}/rentals")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRentalsByCustomerId(@PathParam("id") Integer customerId) {
+        //Dispatch to Rental Controller
+        return
+                new RentalController().getRentalsByCustomerId(customerId);
     }
 
 }
