@@ -1,52 +1,83 @@
 # Sakila API Project
 
-:construction: This project is under development :construction:
+:construction: This project is under continues developments and improvements :construction:
 
-This Java project builds SOAP and REST APIs for the Sakila database using Java 17, Maven, and JPA with Hibernate.
+This Java project builds SOAP and REST APIs for the MySQL's Sakila database using Java 17, Maven, and JPA with Hibernate.
 
 ## Prerequisites
+---
 
 Before running the project, make sure you have the following software installed:
 
-- Java 17
+- JDK 8+
 - Maven
 - MySQL
 
 ## Setup
+---
 
 1. Clone the repository
-``` git clone https://github.com/Mahmoud-Elsaqqa/Sakila-REST-SOAP-APIs ```
+``` git clone https://github.com/Mahmoud-Elsaqqa/Sakila-SOAP-REST-APIs ```
 
 
-2. Create the Sakila database in MySQL by running the `sakila-db.sql` script found in the project root folder.
+2. Check for sakila database dump in your MySQL installation.
 
 
-3. Update the `application.properties` file found in the `src/main/resources` folder with your MySQL database details.
+3. Update the `persistence.xml` file found in the `src/main/resources/META-INF` folder with your MySQL database credentials.
 
 ## Running the Project
+---
 
-To run the project, use the following Maven command:
-``` mvn exec:java ```
+Deploy on Tomcat Web Server +v8.0
+`mvn clean tomcat7:deploy`
+
+navigate to:
+For REST: `https://localhost:9090/sakila/webapi/`
+For SOAP: `https://localhost:9090/sakila/ws/`
 
 
 ## Endpoints
+---
+:construction: To be further extended :construction:
 
-The project provides the following endpoints:
+The project provides CRUD operations to the following endpoints:
 
 ### REST API
-:construction: To be further updated :construction:
 
-- `/api/films` - Returns a list of films.
-- `/api/films/{id}` - Returns a single film by ID.
-- `/api/customers` - Returns a list of customers.
-- `/api/customers/{id}` - Returns a single customer by ID.
+CRUD Operations include:
+- `GET - /webapi/resource/`- find all resources.
+- `GET - /webapi/resource/{id}`- find resource by id.
+- `GET /webapi/resource/count`- find resource count.
+- `HEAD /webapi/resource/`- Check if resource exists or not.
+- `POST /webapi/resource/`- save resource.
+- `DELETE /webapi/resource/{id}`- deletes resource.
+- `PUT /webapi/resource/{id}`- updates resource.
+---
+- `/webapi/films` - CRUD for films
+- `/webapi/actors` - CRUD for actors.
+- `/webapi/customers` - CRUD for customers.
+- `/webapi/stores` - CRUD for stores.
+- `/webapi/payments` - CRUD for payments.
+- `/webapi/staff` - CRUD for staff.
 
 ### SOAP API
-:construction: To be further updated :construction:
 
-- `/ws` - Web service endpoint URL.
-- `/ws/films/{id}` - Returns a single film by ID.
-- `/ws/customers/{id}` - Returns a single customer by ID.
+CRUD Operations include:
+- `findAll() - /ws/resource/`- find all resources.
+- `findById(id) - /resource/{id}`- find resource by id.
+- `count() /resource/count`- find resource count.
+- `existsById(id) /resource/`- Check if resource exists or not.
+- `save(id, requestDto) /resource/`- save resource.
+- `delete(id) /resource/{id}`- deletes resource.
+- `update(id, requestDto) /resource/{id}`- updates resource.
+---
+- `/ws/films` - CRUD for films
+- `/ws/actors` - CRUD for actors.
+- `/ws/customers` - CRUD for customers.
+- `/ws/stores` - CRUD for stores.
+- `/ws/payments` - CRUD for payments.
+- `/ws/staff` - CRUD for staff.
+
 
 ## Technologies Used
 
