@@ -1,9 +1,9 @@
 package gov.iti.jets.service;
 
 import gov.iti.jets.model.constant.Category;
-import gov.iti.jets.model.dto.FilmRequestModel;
+import gov.iti.jets.model.dto.request.FilmRequestModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
-import gov.iti.jets.model.dto.response.ActorDetailsModel;
+import gov.iti.jets.model.dto.extra.ActorDetailsModel;
 import gov.iti.jets.model.entity.inventory.ActorEntity;
 import gov.iti.jets.model.entity.inventory.FilmEntity;
 import gov.iti.jets.model.mapping.mapper.ActorMapper;

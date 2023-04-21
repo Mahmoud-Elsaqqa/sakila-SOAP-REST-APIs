@@ -1,10 +1,9 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.CustomerRequestModel;
+import gov.iti.jets.model.dto.request.CustomerRequestModel;
 import gov.iti.jets.model.dto.customer.CustomerModel;
 import gov.iti.jets.model.dto.extra.CustomerDetailsModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
-import gov.iti.jets.model.dto.response.FilmDetailsModel;
 import gov.iti.jets.model.entity.customer.CustomerEntity;
 import gov.iti.jets.model.mapping.mapper.CustomerMapper;
 import gov.iti.jets.model.mapping.mapper.FilmMapper;

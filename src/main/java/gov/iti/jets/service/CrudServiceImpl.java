@@ -9,7 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
 
-public class CrudServiceImpl<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel, K> implements CrudService<E, M, R, K> {
+public abstract class CrudServiceImpl<E extends BaseEntity, M extends BaseModel, R extends BaseRequestModel, K> implements CrudService<E, M, R, K> {
 
 
     CrudRepository<E, K> repository;

@@ -1,18 +1,16 @@
 package gov.iti.jets.service;
 
 import gov.iti.jets.model.dto.inventory.ActorModel;
-import gov.iti.jets.model.dto.response.ActorDetailsModel;
+import gov.iti.jets.model.dto.extra.ActorDetailsModel;
 import gov.iti.jets.model.entity.inventory.ActorEntity;
-import gov.iti.jets.model.entity.inventory.FilmActorEntity;
 import gov.iti.jets.model.entity.inventory.FilmEntity;
-import gov.iti.jets.model.entity.request.ActorRequestModel;
+import gov.iti.jets.model.dto.request.ActorRequestModel;
 import gov.iti.jets.model.mapping.mapper.ActorMapper;
 import gov.iti.jets.model.mapping.mapper.FilmMapper;
 import gov.iti.jets.repository.ActorRepository;
 import gov.iti.jets.repository.FilmRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ActorServiceImpl extends CrudServiceImpl<ActorEntity, ActorModel, ActorRequestModel, Integer> {
 

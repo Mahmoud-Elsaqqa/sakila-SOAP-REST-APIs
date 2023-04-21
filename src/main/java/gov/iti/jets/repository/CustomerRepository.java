@@ -3,7 +3,6 @@ package gov.iti.jets.repository;
 import gov.iti.jets.model.dto.extra.CustomerDetailsModel;
 import gov.iti.jets.model.entity.customer.CustomerEntity;
 import gov.iti.jets.model.entity.inventory.FilmEntity;
-import gov.iti.jets.model.entity.rental.RentalEntity;
 import gov.iti.jets.util.EntityManagerHelper;
 
 import java.util.List;

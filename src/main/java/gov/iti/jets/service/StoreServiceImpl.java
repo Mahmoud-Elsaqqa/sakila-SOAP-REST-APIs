@@ -1,11 +1,9 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.dto.StoreRequestModel;
+import gov.iti.jets.model.dto.request.StoreRequestModel;
 import gov.iti.jets.model.dto.rental.StoreModel;
 import gov.iti.jets.model.entity.rental.StoreEntity;
-import gov.iti.jets.model.mapping.mapper.BaseMapper;
 import gov.iti.jets.model.mapping.mapper.StoreMapper;
-import gov.iti.jets.repository.CrudRepository;
 import gov.iti.jets.repository.StoreRepository;
 
 public class StoreServiceImpl extends CrudServiceImpl<StoreEntity, StoreModel, StoreRequestModel, Integer> {

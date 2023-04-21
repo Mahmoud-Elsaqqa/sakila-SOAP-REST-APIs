@@ -20,7 +20,7 @@ import java.util.function.Consumer;
  * Avoiding Boilerplate code in EntityRepositories
  * each EntityRepository just needs to extend this class and calls its' super constructor whith its' class
  */
-public class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudRepository<T, K> {
+public abstract class CrudRepositoryImpl<T extends BaseEntity, K> implements CrudRepository<T, K> {
 
     private final Class<T> entityClass;
 

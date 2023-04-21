@@ -1,6 +1,6 @@
 package gov.iti.jets.service;
 
-import gov.iti.jets.model.dto.RentalRequestModel;
+import gov.iti.jets.model.dto.request.RentalRequestModel;
 import gov.iti.jets.model.dto.rental.RentalModel;
 import gov.iti.jets.model.entity.rental.RentalEntity;
 import gov.iti.jets.model.mapping.mapper.RentalMapper;

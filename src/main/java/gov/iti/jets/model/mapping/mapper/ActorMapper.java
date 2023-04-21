@@ -1,9 +1,9 @@
 package gov.iti.jets.model.mapping.mapper;
 
 import gov.iti.jets.model.dto.inventory.ActorModel;
-import gov.iti.jets.model.dto.response.ActorDetailsModel;
+import gov.iti.jets.model.dto.extra.ActorDetailsModel;
 import gov.iti.jets.model.entity.inventory.ActorEntity;
-import gov.iti.jets.model.entity.request.ActorRequestModel;
+import gov.iti.jets.model.dto.request.ActorRequestModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

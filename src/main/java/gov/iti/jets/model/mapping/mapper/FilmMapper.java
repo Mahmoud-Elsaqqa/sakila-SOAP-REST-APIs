@@ -1,6 +1,6 @@
 package gov.iti.jets.model.mapping.mapper;
 
-import gov.iti.jets.model.dto.FilmRequestModel;
+import gov.iti.jets.model.dto.request.FilmRequestModel;
 import gov.iti.jets.model.dto.inventory.FilmModel;
 import gov.iti.jets.model.entity.inventory.FilmEntity;
 import org.mapstruct.Mapper;

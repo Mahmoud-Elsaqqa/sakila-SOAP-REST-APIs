@@ -3,30 +3,30 @@
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
     <endpoint
             name="ActorWS"
-            implementation="gov.iti.jets.soap.ActorWSImpl"
+            implementation="gov.iti.jets.controller.soap.ActorWSImpl"
             url-pattern="/ws/actors"/>
     <endpoint
             name="FilmWS"
-            implementation="gov.iti.jets.soap.FilmWSImpl"
+            implementation="gov.iti.jets.controller.soap.FilmWSImpl"
             url-pattern="/ws/films"/>
     <endpoint
             name="CustomerWS"
-            implementation="gov.iti.jets.soap.CustomerWSImpl"
+            implementation="gov.iti.jets.controller.soap.CustomerWSImpl"
             url-pattern="/ws/customers"/>
     <endpoint
             name="PaymentWS"
-            implementation="gov.iti.jets.soap.PaymentWSImpl"
+            implementation="gov.iti.jets.controller.soap.PaymentWSImpl"
             url-pattern="/ws/payments"/>
     <endpoint
             name="RentalWS"
-            implementation="gov.iti.jets.soap.RentalWSImpl"
+            implementation="gov.iti.jets.controller.soap.RentalWSImpl"
             url-pattern="/ws/rentals"/>
     <endpoint
             name="StaffWS"
-            implementation="gov.iti.jets.soap.StaffWSImpl"
+            implementation="gov.iti.jets.controller.soap.StaffWSImpl"
             url-pattern="/ws/staff"/>
     <endpoint
             name="StoreWS"
-            implementation="gov.iti.jets.soap.StoreWSImpl"
+            implementation="gov.iti.jets.controller.soap.StoreWSImpl"
             url-pattern="/ws/stores"/>
 </endpoints>

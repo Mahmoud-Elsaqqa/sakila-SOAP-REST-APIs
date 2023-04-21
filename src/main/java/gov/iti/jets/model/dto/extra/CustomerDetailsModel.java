@@ -11,7 +11,6 @@ import jakarta.json.bind.annotation.JsonbPropertyOrder;
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Convert;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlTransient;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 

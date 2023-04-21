@@ -7,7 +7,7 @@ import gov.iti.jets.model.constant.FilmRating;
 import gov.iti.jets.model.constant.Language;
 import gov.iti.jets.model.constant.SpecialFeature;
 import gov.iti.jets.model.dto.BaseModel;
-import gov.iti.jets.model.dto.response.ActorDetailsModel;
+import gov.iti.jets.model.dto.extra.ActorDetailsModel;
 import gov.iti.jets.model.mapping.converter.FilmRatingConverter;
 import gov.iti.jets.model.mapping.converter.SpecialFeatureConverter;
 import jakarta.persistence.Convert;
