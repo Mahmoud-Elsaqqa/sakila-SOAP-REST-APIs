@@ -15,7 +15,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 
 
-@Path("/actor")
+@Path("/actors")
 public class ActorController extends CrudControllerImpl<ActorEntity, ActorModel, ActorRequestModel> {
 
     private static final ActorServiceImpl service = new ActorServiceImpl();

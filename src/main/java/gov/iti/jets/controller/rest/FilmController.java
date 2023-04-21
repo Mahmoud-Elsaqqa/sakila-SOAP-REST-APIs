@@ -13,7 +13,7 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
 
-@Path("/film")
+@Path("/films")
 public class FilmController extends CrudControllerImpl<FilmEntity, FilmModel, FilmRequestModel> {
 
     private static final FilmServiceImpl service = new FilmServiceImpl();

@@ -6,7 +6,7 @@ import gov.iti.jets.model.entity.rental.StoreEntity;
 import gov.iti.jets.service.StoreServiceImpl;
 import jakarta.ws.rs.Path;
 
-@Path("/store")
+@Path("/stores")
 public class StoreController extends CrudControllerImpl<StoreEntity, StoreModel, StoreRequestModel> {
     public static final StoreServiceImpl service = new StoreServiceImpl();
 
