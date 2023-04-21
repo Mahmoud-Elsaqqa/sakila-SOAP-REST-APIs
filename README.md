@@ -5,7 +5,6 @@
 This Java project builds SOAP and REST APIs for the MySQL's Sakila database using Java 17, Maven, and JPA with Hibernate.
 
 ## Prerequisites
----
 
 Before running the project, make sure you have the following software installed:
 
@@ -14,7 +13,7 @@ Before running the project, make sure you have the following software installed:
 - MySQL
 
 ## Setup
----
+
 
 1. Clone the repository
 ``` git clone https://github.com/Mahmoud-Elsaqqa/Sakila-SOAP-REST-APIs ```
@@ -33,11 +32,12 @@ Deploy on Tomcat Web Server +v8.0
 
 navigate to:
 For REST: `https://localhost:9090/sakila/webapi/`
+
 For SOAP: `https://localhost:9090/sakila/ws/`
 
 
 ## Endpoints
----
+
 :construction: To be further extended :construction:
 
 The project provides CRUD operations to the following endpoints:
